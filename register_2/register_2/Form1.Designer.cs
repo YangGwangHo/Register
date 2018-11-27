@@ -321,7 +321,6 @@
             this.KeyPreview = true;
             this.Name = "Form1";
             this.Text = "자동 등록기";
-            this.Activated += new System.EventHandler(this.Form1_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

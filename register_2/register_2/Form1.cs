@@ -356,7 +356,8 @@ namespace register_2
         }
 
         private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
-        {/*
+        {
+            /*
             int index = listView1.SelectedItems.Count;
             int i = 0;
             string check = "";
@@ -385,11 +386,6 @@ namespace register_2
                 i++;
             }*/
         }
-
-        private void Form1_Activated(object sender, EventArgs e)
-        {
-        }
-
         private void Button2_Click(object sender, EventArgs e) //삭제
         {
             if(MessageBox.Show(listView1.SelectedItems.Count.ToString() + "개의 물품을 삭제하시겠습니까?","삭제",MessageBoxButtons.YesNo)==DialogResult.Yes)
