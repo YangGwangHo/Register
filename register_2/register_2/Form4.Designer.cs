@@ -49,7 +49,6 @@
             this.listBox4 = new System.Windows.Forms.ListBox();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.label61 = new System.Windows.Forms.Label();
             this.content5 = new System.Windows.Forms.TextBox();
             this.label62 = new System.Windows.Forms.Label();
@@ -62,7 +61,6 @@
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
             this.content1 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -85,7 +83,6 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.label33 = new System.Windows.Forms.Label();
             this.content2 = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
@@ -101,7 +98,6 @@
             this.listBox5 = new System.Windows.Forms.ListBox();
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.label70 = new System.Windows.Forms.Label();
             this.content3 = new System.Windows.Forms.TextBox();
             this.label71 = new System.Windows.Forms.Label();
@@ -123,7 +119,6 @@
             this.listBox3 = new System.Windows.Forms.ListBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.label39 = new System.Windows.Forms.Label();
             this.content4 = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
@@ -141,7 +136,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.ItemNomal1 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -151,13 +145,11 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.ItemHaggle1 = new System.Windows.Forms.Panel();
             this.label47 = new System.Windows.Forms.Label();
-            this.label64 = new System.Windows.Forms.Label();
             this.label66 = new System.Windows.Forms.Label();
             this.label67 = new System.Windows.Forms.Label();
             this.label68 = new System.Windows.Forms.Label();
@@ -168,7 +160,6 @@
             this.label50 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
-            this.label55 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
@@ -177,7 +168,6 @@
             this.label53 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
@@ -258,11 +248,11 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.MoneyDivide2);
             this.panel4.Controls.Add(this.ItemNomal2);
             this.panel4.Controls.Add(this.ItemDivide2);
             this.panel4.Controls.Add(this.ItemHaggle2);
             this.panel4.Controls.Add(this.MoneyNomal2);
+            this.panel4.Controls.Add(this.MoneyDivide2);
             this.panel4.Location = new System.Drawing.Point(163, 139);
             this.panel4.Margin = new System.Windows.Forms.Padding(15, 0, 15, 15);
             this.panel4.Name = "panel4";
@@ -286,7 +276,6 @@
             this.MoneyDivide2.Controls.Add(this.listBox4);
             this.MoneyDivide2.Controls.Add(this.button7);
             this.MoneyDivide2.Controls.Add(this.button8);
-            this.MoneyDivide2.Controls.Add(this.checkBox5);
             this.MoneyDivide2.Controls.Add(this.label61);
             this.MoneyDivide2.Controls.Add(this.content5);
             this.MoneyDivide2.Controls.Add(this.label62);
@@ -478,16 +467,6 @@
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.Button8_Click);
             // 
-            // checkBox5
-            // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(15, 245);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(96, 16);
-            this.checkBox5.TabIndex = 30;
-            this.checkBox5.Text = "자택번호안내";
-            this.checkBox5.UseVisualStyleBackColor = true;
-            // 
             // label61
             // 
             this.label61.AutoSize = true;
@@ -546,7 +525,6 @@
             this.ItemNomal2.Controls.Add(this.listBox2);
             this.ItemNomal2.Controls.Add(this.button3);
             this.ItemNomal2.Controls.Add(this.button4);
-            this.ItemNomal2.Controls.Add(this.checkBox3);
             this.ItemNomal2.Controls.Add(this.label9);
             this.ItemNomal2.Controls.Add(this.content1);
             this.ItemNomal2.Controls.Add(this.label10);
@@ -622,16 +600,6 @@
             this.button4.Text = "선택";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.Button4_Click);
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(4, 175);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(96, 16);
-            this.checkBox3.TabIndex = 21;
-            this.checkBox3.Text = "자택번호안내";
-            this.checkBox3.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
@@ -715,7 +683,6 @@
             this.ItemDivide2.Controls.Add(this.listBox1);
             this.ItemDivide2.Controls.Add(this.button1);
             this.ItemDivide2.Controls.Add(this.button2);
-            this.ItemDivide2.Controls.Add(this.checkBox2);
             this.ItemDivide2.Controls.Add(this.label33);
             this.ItemDivide2.Controls.Add(this.content2);
             this.ItemDivide2.Controls.Add(this.label34);
@@ -854,16 +821,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(9, 219);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(96, 16);
-            this.checkBox2.TabIndex = 21;
-            this.checkBox2.Text = "자택번호안내";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
             // label33
             // 
             this.label33.AutoSize = true;
@@ -925,7 +882,6 @@
             this.ItemHaggle2.Controls.Add(this.listBox5);
             this.ItemHaggle2.Controls.Add(this.button11);
             this.ItemHaggle2.Controls.Add(this.button12);
-            this.ItemHaggle2.Controls.Add(this.checkBox6);
             this.ItemHaggle2.Controls.Add(this.label70);
             this.ItemHaggle2.Controls.Add(this.content3);
             this.ItemHaggle2.Controls.Add(this.label71);
@@ -1028,16 +984,6 @@
             this.button12.UseVisualStyleBackColor = true;
             this.button12.Click += new System.EventHandler(this.Button12_Click);
             // 
-            // checkBox6
-            // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(14, 214);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(96, 16);
-            this.checkBox6.TabIndex = 21;
-            this.checkBox6.Text = "자택번호안내";
-            this.checkBox6.UseVisualStyleBackColor = true;
-            // 
             // label70
             // 
             this.label70.AutoSize = true;
@@ -1116,7 +1062,6 @@
             this.MoneyNomal2.Controls.Add(this.listBox3);
             this.MoneyNomal2.Controls.Add(this.button5);
             this.MoneyNomal2.Controls.Add(this.button6);
-            this.MoneyNomal2.Controls.Add(this.checkBox4);
             this.MoneyNomal2.Controls.Add(this.label39);
             this.MoneyNomal2.Controls.Add(this.content4);
             this.MoneyNomal2.Controls.Add(this.label40);
@@ -1261,16 +1206,6 @@
             this.button6.Text = "선택";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.Button6_Click);
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(10, 224);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(96, 16);
-            this.checkBox4.TabIndex = 21;
-            this.checkBox4.Text = "자택번호안내";
-            this.checkBox4.UseVisualStyleBackColor = true;
             // 
             // label39
             // 
@@ -1419,7 +1354,6 @@
             // ItemNomal1
             // 
             this.ItemNomal1.Controls.Add(this.label12);
-            this.ItemNomal1.Controls.Add(this.label17);
             this.ItemNomal1.Controls.Add(this.label18);
             this.ItemNomal1.Controls.Add(this.label19);
             this.ItemNomal1.Controls.Add(this.label20);
@@ -1438,16 +1372,6 @@
             this.label12.Size = new System.Drawing.Size(65, 12);
             this.label12.TabIndex = 14;
             this.label12.Text = "이미지등록";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(11, 176);
-            this.label17.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(77, 12);
-            this.label17.TabIndex = 13;
-            this.label17.Text = "자택번호안내";
             // 
             // label18
             // 
@@ -1495,7 +1419,6 @@
             this.ItemDivide1.Controls.Add(this.label23);
             this.ItemDivide1.Controls.Add(this.label22);
             this.ItemDivide1.Controls.Add(this.label6);
-            this.ItemDivide1.Controls.Add(this.label7);
             this.ItemDivide1.Controls.Add(this.label8);
             this.ItemDivide1.Controls.Add(this.label14);
             this.ItemDivide1.Controls.Add(this.label15);
@@ -1544,16 +1467,6 @@
             this.label6.TabIndex = 14;
             this.label6.Text = "이미지등록";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(11, 224);
-            this.label7.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 12);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "자택번호안내";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -1587,7 +1500,6 @@
             // ItemHaggle1
             // 
             this.ItemHaggle1.Controls.Add(this.label47);
-            this.ItemHaggle1.Controls.Add(this.label64);
             this.ItemHaggle1.Controls.Add(this.label66);
             this.ItemHaggle1.Controls.Add(this.label67);
             this.ItemHaggle1.Controls.Add(this.label68);
@@ -1606,16 +1518,6 @@
             this.label47.Size = new System.Drawing.Size(65, 12);
             this.label47.TabIndex = 14;
             this.label47.Text = "이미지등록";
-            // 
-            // label64
-            // 
-            this.label64.AutoSize = true;
-            this.label64.Location = new System.Drawing.Point(11, 212);
-            this.label64.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(77, 12);
-            this.label64.TabIndex = 13;
-            this.label64.Text = "자택번호안내";
             // 
             // label66
             // 
@@ -1664,7 +1566,6 @@
             this.MoneyDivide1.Controls.Add(this.label50);
             this.MoneyDivide1.Controls.Add(this.label51);
             this.MoneyDivide1.Controls.Add(this.label52);
-            this.MoneyDivide1.Controls.Add(this.label55);
             this.MoneyDivide1.Controls.Add(this.label56);
             this.MoneyDivide1.Controls.Add(this.label57);
             this.MoneyDivide1.Controls.Add(this.label58);
@@ -1723,16 +1624,6 @@
             this.label52.TabIndex = 14;
             this.label52.Text = "이미지등록";
             // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(11, 246);
-            this.label55.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(77, 12);
-            this.label55.TabIndex = 13;
-            this.label55.Text = "자택번호안내";
-            // 
             // label56
             // 
             this.label56.AutoSize = true;
@@ -1769,7 +1660,6 @@
             this.MoneyNomal1.Controls.Add(this.label53);
             this.MoneyNomal1.Controls.Add(this.label43);
             this.MoneyNomal1.Controls.Add(this.label25);
-            this.MoneyNomal1.Controls.Add(this.label26);
             this.MoneyNomal1.Controls.Add(this.label27);
             this.MoneyNomal1.Controls.Add(this.label28);
             this.MoneyNomal1.Controls.Add(this.label37);
@@ -1817,16 +1707,6 @@
             this.label25.Size = new System.Drawing.Size(65, 12);
             this.label25.TabIndex = 14;
             this.label25.Text = "이미지등록";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(11, 221);
-            this.label26.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(77, 12);
-            this.label26.TabIndex = 13;
-            this.label26.Text = "자택번호안내";
             // 
             // label27
             // 
@@ -2227,7 +2107,6 @@
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox content1;
         private System.Windows.Forms.Label label10;
@@ -2248,7 +2127,6 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.TextBox content2;
         private System.Windows.Forms.Label label34;
@@ -2258,7 +2136,6 @@
         private System.Windows.Forms.Panel ItemDivide1;
         private System.Windows.Forms.Panel ItemNomal1;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
@@ -2267,13 +2144,11 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel MoneyNomal1;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label37;
@@ -2281,7 +2156,6 @@
         private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.TextBox content4;
         private System.Windows.Forms.Label label40;
@@ -2303,7 +2177,6 @@
         private System.Windows.Forms.ListBox listBox4;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.CheckBox checkBox5;
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.TextBox content5;
         private System.Windows.Forms.Label label62;
@@ -2315,7 +2188,6 @@
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.Label label52;
-        private System.Windows.Forms.Label label55;
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.Label label58;
@@ -2344,7 +2216,6 @@
         private System.Windows.Forms.ListBox listBox5;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.CheckBox checkBox6;
         private System.Windows.Forms.Label label70;
         private System.Windows.Forms.TextBox content3;
         private System.Windows.Forms.Label label71;
@@ -2355,7 +2226,6 @@
         private System.Windows.Forms.TextBox price2;
         private System.Windows.Forms.Panel ItemHaggle1;
         private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.Label label64;
         private System.Windows.Forms.Label label66;
         private System.Windows.Forms.Label label67;
         private System.Windows.Forms.Label label68;

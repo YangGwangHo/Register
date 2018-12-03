@@ -899,7 +899,6 @@ namespace register_2
             button7.Enabled = false;
             button8.Enabled = false;
             addProduct.Enabled = false;
-            listView1.Enabled = false;
             
             regist = new Thread(Regist);
             regist.Start();
@@ -922,7 +921,6 @@ namespace register_2
             button7.Enabled = true;
             button8.Enabled = true;
             addProduct.Enabled = true;
-            listView1.Enabled = true;
         }
 
         private void Button5_Click(object sender, EventArgs e)
