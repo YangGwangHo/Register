@@ -494,6 +494,8 @@ namespace register_2
                 MenuItem m8 = new MenuItem();
                 MenuItem m9 = new MenuItem();
                 MenuItem m10 = new MenuItem();
+                MenuItem m11 = new MenuItem();
+                MenuItem m12 = new MenuItem();
 
                 m0.Text = "등록계정 변경";
                 m1.Text = "제목 변경";
@@ -506,6 +508,9 @@ namespace register_2
                 m8.Text = "가격 -100원(Ctrl+숫자패드2)";
                 m9.Text = "가격 +10원(숫자패드8)";
                 m10.Text = "가격 -10원(숫자패드2)";
+                m11.Text = "체크";
+                m12.Text = "체크해제";
+
 
                 m.MenuItems.Add(m0);
                 m.MenuItems.Add(m1);
@@ -518,6 +523,8 @@ namespace register_2
                 m.MenuItems.Add(m8);
                 m.MenuItems.Add(m9);
                 m.MenuItems.Add(m10);
+                m.MenuItems.Add(m11);
+                m.MenuItems.Add(m12);
 
                 m0.Click += (senders, es) =>
                 {
@@ -686,7 +693,6 @@ namespace register_2
                     {
                         try
                         {
-
                             int price = Int32.Parse(listView1.SelectedItems[i].SubItems[7].Text) - 10;
                             string DbFile = "data.dat";
                             string ConnectionString = string.Format("Data Source={0};Version=3;", DbFile);
@@ -706,7 +712,58 @@ namespace register_2
                     }
                 };
 
+                m11.Click += (senders, es) =>
+                {
+                    int index = listView1.SelectedItems.Count;
+                    int i = 0;
 
+                    while (index > i)
+                    {
+                        try
+                        {
+                            string DbFile = "data.dat";
+                            string ConnectionString = string.Format("Data Source={0};Version=3;", DbFile);
+                            SQLiteConnection sqliteConn = new SQLiteConnection(ConnectionString);
+                            sqliteConn.Open();
+                            string strsql2 = "UPDATE regist SET 등록='체크' where rowid IN (SELECT rowid FROM regist LIMIT " + listView1.SelectedIndices[i] + ",1)";
+                            SQLiteCommand cmd = new SQLiteCommand(strsql2, sqliteConn);
+                            cmd.ExecuteNonQuery();
+                            sqliteConn.Close();
+                            listView1.SelectedItems[i].Checked = true;
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine(ex);
+                        }
+                        i++;
+                    }
+                };
+                m12.Click += (senders, es) =>
+                {
+                    int index = listView1.SelectedItems.Count;
+                    int i = 0;
+
+                    while (index > i)
+                    {
+                        try
+                        {
+                            string DbFile = "data.dat";
+                            string ConnectionString = string.Format("Data Source={0};Version=3;", DbFile);
+                            SQLiteConnection sqliteConn = new SQLiteConnection(ConnectionString);
+                            sqliteConn.Open();
+                            string strsql2 = "UPDATE regist SET 등록='' where rowid IN (SELECT rowid FROM regist LIMIT " + listView1.SelectedIndices[i] + ",1)";
+                            SQLiteCommand cmd = new SQLiteCommand(strsql2, sqliteConn);
+                            cmd.ExecuteNonQuery();
+                            sqliteConn.Close();
+                            listView1.SelectedItems[i].Checked = false;
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine(ex);
+                        }
+                        i++;
+                    }
+                };
                 m.Show(listView1, new Point(e.X, e.Y));
 
             }
