@@ -187,7 +187,7 @@ namespace register_2
                 string ConnectionString = string.Format("Data Source={0};Version=3;", DbFile);
                 SQLiteConnection sqliteConn = new SQLiteConnection(ConnectionString);
                 sqliteConn.Open();
-                string strsql = "SELECT 등록,아이디,매매구분,게임명,서버명,제목,물품종류,가격,최대수량,분할단위,최소수량 FROM regist";
+                string strsql = "SELECT 등록,아이디,매매구분,게임명,서버명,일반분할흥정,제목,물품종류,가격,기준가격,최대수량,분할단위,최소수량 FROM regist";
 
                 SQLiteCommand cmd = new SQLiteCommand(strsql, sqliteConn);
                 SQLiteDataReader reader = cmd.ExecuteReader();
@@ -203,7 +203,14 @@ namespace register_2
                         lvi.SubItems.Add(reader["서버명"].ToString());
                         lvi.SubItems.Add(reader["제목"].ToString());
                         lvi.SubItems.Add(reader["물품종류"].ToString());
-                        lvi.SubItems.Add(reader["가격"].ToString());
+                        if(reader["일반분할흥정"].ToString() =="division")
+                        {
+                            lvi.SubItems.Add(reader["기준가격"].ToString());
+                        }
+                        else
+                        {
+                            lvi.SubItems.Add(reader["가격"].ToString());
+                        }
                         lvi.SubItems.Add(reader["최대수량"].ToString());
                         lvi.SubItems.Add(reader["분할단위"].ToString());
                         lvi.SubItems.Add(reader["최소수량"].ToString());

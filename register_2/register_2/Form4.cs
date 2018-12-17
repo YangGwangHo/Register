@@ -259,6 +259,8 @@ namespace register_2
                     Dserver5.Text = Form1.updateTable.Rows[0]["전달서버"].ToString();
                     title5.Text = Form1.updateTable.Rows[0]["제목"].ToString();
                     content5.Text = Form1.updateTable.Rows[0]["내용"].ToString();
+                    if (Form1.updateTable.Rows[0]["즉시구매"].ToString() == "1")
+                        rightoff.Checked = true;
                     string[] image;
                     image = Form1.updateTable.Rows[0]["이미지"].ToString().Split('|');
                     for (int i = 0; i < image.Length; i++)
@@ -278,6 +280,7 @@ namespace register_2
                     btnHaggle.Visible = false;
                 }
                 Form1.updateTable.Rows.Remove(Form1.updateTable.Rows[0]);
+                Form1.updateNum = -1;
             }
         }
 
