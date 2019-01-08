@@ -1,6 +1,6 @@
 ﻿namespace register_2
 {
-    partial class OptionForm
+    partial class Form_Option
     {
         /// <summary>
         /// Required designer variable.

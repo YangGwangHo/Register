@@ -1,6 +1,6 @@
 ﻿namespace register_2
 {
-    partial class Form4
+    partial class Form_ProductAdd
     {
         /// <summary>
         /// Required designer variable.
@@ -30,31 +30,6 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.MoneyDivide2 = new System.Windows.Forms.Panel();
-            this.dfLabel4 = new System.Windows.Forms.Label();
-            this.Dserver5 = new System.Windows.Forms.ComboBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.btnUk2 = new System.Windows.Forms.RadioButton();
-            this.btnMan2 = new System.Windows.Forms.RadioButton();
-            this.btnNon2 = new System.Windows.Forms.RadioButton();
-            this.label65 = new System.Windows.Forms.Label();
-            this.criteria2 = new System.Windows.Forms.TextBox();
-            this.label46 = new System.Windows.Forms.Label();
-            this.dividePrice2 = new System.Windows.Forms.TextBox();
-            this.label45 = new System.Windows.Forms.Label();
-            this.max1 = new System.Windows.Forms.TextBox();
-            this.label59 = new System.Windows.Forms.Label();
-            this.min1 = new System.Windows.Forms.TextBox();
-            this.label60 = new System.Windows.Forms.Label();
-            this.listBox4 = new System.Windows.Forms.ListBox();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.label61 = new System.Windows.Forms.Label();
-            this.content5 = new System.Windows.Forms.TextBox();
-            this.label62 = new System.Windows.Forms.Label();
-            this.title5 = new System.Windows.Forms.TextBox();
-            this.label63 = new System.Windows.Forms.Label();
-            this.name5 = new System.Windows.Forms.TextBox();
             this.ItemNomal2 = new System.Windows.Forms.Panel();
             this.dfLabel5 = new System.Windows.Forms.Label();
             this.Dserver1 = new System.Windows.Forms.ComboBox();
@@ -127,6 +102,31 @@
             this.name4 = new System.Windows.Forms.TextBox();
             this.label42 = new System.Windows.Forms.Label();
             this.price3 = new System.Windows.Forms.TextBox();
+            this.MoneyDivide2 = new System.Windows.Forms.Panel();
+            this.dfLabel4 = new System.Windows.Forms.Label();
+            this.Dserver5 = new System.Windows.Forms.ComboBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnUk2 = new System.Windows.Forms.RadioButton();
+            this.btnMan2 = new System.Windows.Forms.RadioButton();
+            this.btnNon2 = new System.Windows.Forms.RadioButton();
+            this.label65 = new System.Windows.Forms.Label();
+            this.criteria2 = new System.Windows.Forms.TextBox();
+            this.label46 = new System.Windows.Forms.Label();
+            this.dividePrice2 = new System.Windows.Forms.TextBox();
+            this.label45 = new System.Windows.Forms.Label();
+            this.max1 = new System.Windows.Forms.TextBox();
+            this.label59 = new System.Windows.Forms.Label();
+            this.min1 = new System.Windows.Forms.TextBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.listBox4 = new System.Windows.Forms.ListBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.label61 = new System.Windows.Forms.Label();
+            this.content5 = new System.Windows.Forms.TextBox();
+            this.label62 = new System.Windows.Forms.Label();
+            this.title5 = new System.Windows.Forms.TextBox();
+            this.label63 = new System.Windows.Forms.Label();
+            this.name5 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -200,13 +200,13 @@
             this.comboServer = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.MoneyDivide2.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.ItemNomal2.SuspendLayout();
             this.ItemDivide2.SuspendLayout();
             this.ItemHaggle2.SuspendLayout();
             this.MoneyNomal2.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.MoneyDivide2.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.ItemNomal1.SuspendLayout();
@@ -258,265 +258,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(617, 398);
             this.panel4.TabIndex = 3;
-            // 
-            // MoneyDivide2
-            // 
-            this.MoneyDivide2.Controls.Add(this.dfLabel4);
-            this.MoneyDivide2.Controls.Add(this.Dserver5);
-            this.MoneyDivide2.Controls.Add(this.groupBox5);
-            this.MoneyDivide2.Controls.Add(this.label65);
-            this.MoneyDivide2.Controls.Add(this.criteria2);
-            this.MoneyDivide2.Controls.Add(this.label46);
-            this.MoneyDivide2.Controls.Add(this.dividePrice2);
-            this.MoneyDivide2.Controls.Add(this.label45);
-            this.MoneyDivide2.Controls.Add(this.max1);
-            this.MoneyDivide2.Controls.Add(this.label59);
-            this.MoneyDivide2.Controls.Add(this.min1);
-            this.MoneyDivide2.Controls.Add(this.label60);
-            this.MoneyDivide2.Controls.Add(this.listBox4);
-            this.MoneyDivide2.Controls.Add(this.button7);
-            this.MoneyDivide2.Controls.Add(this.button8);
-            this.MoneyDivide2.Controls.Add(this.label61);
-            this.MoneyDivide2.Controls.Add(this.content5);
-            this.MoneyDivide2.Controls.Add(this.label62);
-            this.MoneyDivide2.Controls.Add(this.title5);
-            this.MoneyDivide2.Controls.Add(this.label63);
-            this.MoneyDivide2.Controls.Add(this.name5);
-            this.MoneyDivide2.Location = new System.Drawing.Point(0, 0);
-            this.MoneyDivide2.Name = "MoneyDivide2";
-            this.MoneyDivide2.Size = new System.Drawing.Size(614, 394);
-            this.MoneyDivide2.TabIndex = 32;
-            // 
-            // dfLabel4
-            // 
-            this.dfLabel4.AutoSize = true;
-            this.dfLabel4.Location = new System.Drawing.Point(493, 98);
-            this.dfLabel4.Name = "dfLabel4";
-            this.dfLabel4.Size = new System.Drawing.Size(121, 12);
-            this.dfLabel4.TabIndex = 40;
-            this.dfLabel4.Text = "물품을 전달하실 서버";
-            this.dfLabel4.Visible = false;
-            // 
-            // Dserver5
-            // 
-            this.Dserver5.FormattingEnabled = true;
-            this.Dserver5.Items.AddRange(new object[] {
-            "스타트",
-            "디레지에",
-            "바칼",
-            "시로코",
-            "안톤",
-            "카시야스",
-            "카인",
-            "프레이",
-            "힐더",
-            "퍼스트-테스트(1군)",
-            "퍼스트-테스트(2군)",
-            "퍼스트-테스트",
-            "이벤트(시즌)서버",
-            "기타"});
-            this.Dserver5.Location = new System.Drawing.Point(375, 93);
-            this.Dserver5.Name = "Dserver5";
-            this.Dserver5.Size = new System.Drawing.Size(114, 20);
-            this.Dserver5.TabIndex = 39;
-            this.Dserver5.Visible = false;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.btnUk2);
-            this.groupBox5.Controls.Add(this.btnMan2);
-            this.groupBox5.Controls.Add(this.btnNon2);
-            this.groupBox5.Location = new System.Drawing.Point(103, -2);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(187, 24);
-            this.groupBox5.TabIndex = 38;
-            this.groupBox5.TabStop = false;
-            // 
-            // btnUk2
-            // 
-            this.btnUk2.AutoSize = true;
-            this.btnUk2.Location = new System.Drawing.Point(102, 4);
-            this.btnUk2.Name = "btnUk2";
-            this.btnUk2.Size = new System.Drawing.Size(35, 16);
-            this.btnUk2.TabIndex = 28;
-            this.btnUk2.TabStop = true;
-            this.btnUk2.Text = "억";
-            this.btnUk2.UseVisualStyleBackColor = true;
-            // 
-            // btnMan2
-            // 
-            this.btnMan2.AutoSize = true;
-            this.btnMan2.Location = new System.Drawing.Point(61, 4);
-            this.btnMan2.Name = "btnMan2";
-            this.btnMan2.Size = new System.Drawing.Size(35, 16);
-            this.btnMan2.TabIndex = 27;
-            this.btnMan2.TabStop = true;
-            this.btnMan2.Text = "만";
-            this.btnMan2.UseVisualStyleBackColor = true;
-            // 
-            // btnNon2
-            // 
-            this.btnNon2.AutoSize = true;
-            this.btnNon2.Location = new System.Drawing.Point(8, 4);
-            this.btnNon2.Name = "btnNon2";
-            this.btnNon2.Size = new System.Drawing.Size(47, 16);
-            this.btnNon2.TabIndex = 26;
-            this.btnNon2.TabStop = true;
-            this.btnNon2.Text = "없음";
-            this.btnNon2.UseVisualStyleBackColor = true;
-            // 
-            // label65
-            // 
-            this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(287, 26);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(85, 12);
-            this.label65.TabIndex = 37;
-            this.label65.Text = "에 판매합니다.";
-            // 
-            // criteria2
-            // 
-            this.criteria2.Location = new System.Drawing.Point(188, 22);
-            this.criteria2.Name = "criteria2";
-            this.criteria2.Size = new System.Drawing.Size(90, 21);
-            this.criteria2.TabIndex = 22;
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(113, 26);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(69, 12);
-            this.label46.TabIndex = 35;
-            this.label46.Text = "게임머니 당";
-            // 
-            // dividePrice2
-            // 
-            this.dividePrice2.Location = new System.Drawing.Point(14, 22);
-            this.dividePrice2.Name = "dividePrice2";
-            this.dividePrice2.Size = new System.Drawing.Size(90, 21);
-            this.dividePrice2.TabIndex = 21;
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(155, 50);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(53, 12);
-            this.label45.TabIndex = 33;
-            this.label45.Text = "게임머니";
-            // 
-            // max1
-            // 
-            this.max1.Location = new System.Drawing.Point(13, 46);
-            this.max1.Name = "max1";
-            this.max1.Size = new System.Drawing.Size(136, 21);
-            this.max1.TabIndex = 23;
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(155, 73);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(53, 12);
-            this.label59.TabIndex = 31;
-            this.label59.Text = "게임머니";
-            // 
-            // min1
-            // 
-            this.min1.Location = new System.Drawing.Point(13, 69);
-            this.min1.Name = "min1";
-            this.min1.Size = new System.Drawing.Size(136, 21);
-            this.min1.TabIndex = 24;
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(11, 5);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(93, 12);
-            this.label60.TabIndex = 25;
-            this.label60.Text = "[거래수량 단위]";
-            // 
-            // listBox4
-            // 
-            this.listBox4.FormattingEnabled = true;
-            this.listBox4.ItemHeight = 12;
-            this.listBox4.Location = new System.Drawing.Point(14, 276);
-            this.listBox4.Name = "listBox4";
-            this.listBox4.Size = new System.Drawing.Size(457, 112);
-            this.listBox4.TabIndex = 31;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(478, 305);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 33;
-            this.button7.Text = "삭제";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.Button7_Click);
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(478, 279);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 32;
-            this.button8.Text = "선택";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.Button8_Click);
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(477, 224);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(33, 12);
-            this.label61.TabIndex = 20;
-            this.label61.Text = "(0자)";
-            // 
-            // content5
-            // 
-            this.content5.Location = new System.Drawing.Point(14, 139);
-            this.content5.Multiline = true;
-            this.content5.Name = "content5";
-            this.content5.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.content5.Size = new System.Drawing.Size(457, 97);
-            this.content5.TabIndex = 27;
-            // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.Location = new System.Drawing.Point(476, 119);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(33, 12);
-            this.label62.TabIndex = 18;
-            this.label62.Text = "(0자)";
-            // 
-            // title5
-            // 
-            this.title5.Location = new System.Drawing.Point(13, 116);
-            this.title5.Multiline = true;
-            this.title5.Name = "title5";
-            this.title5.Size = new System.Drawing.Size(457, 21);
-            this.title5.TabIndex = 26;
-            // 
-            // label63
-            // 
-            this.label63.AutoSize = true;
-            this.label63.Location = new System.Drawing.Point(177, 98);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(185, 12);
-            this.label63.TabIndex = 16;
-            this.label63.Text = "물품을 전달하실 본인의 캐릭터명";
-            // 
-            // name5
-            // 
-            this.name5.Location = new System.Drawing.Point(14, 92);
-            this.name5.Name = "name5";
-            this.name5.Size = new System.Drawing.Size(157, 21);
-            this.name5.TabIndex = 25;
             // 
             // ItemNomal2
             // 
@@ -618,6 +359,7 @@
             this.content1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.content1.Size = new System.Drawing.Size(457, 97);
             this.content1.TabIndex = 3;
+            this.content1.TextChanged += new System.EventHandler(this.content1_TextChanged);
             // 
             // label10
             // 
@@ -631,10 +373,12 @@
             // title1
             // 
             this.title1.Location = new System.Drawing.Point(2, 49);
+            this.title1.MaxLength = 30;
             this.title1.Multiline = true;
             this.title1.Name = "title1";
             this.title1.Size = new System.Drawing.Size(457, 21);
             this.title1.TabIndex = 2;
+            this.title1.TextChanged += new System.EventHandler(this.title1_TextChanged);
             // 
             // label11
             // 
@@ -667,6 +411,7 @@
             this.price1.Name = "price1";
             this.price1.Size = new System.Drawing.Size(136, 21);
             this.price1.TabIndex = 0;
+            this.price1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.price1_KeyPress);
             // 
             // ItemDivide2
             // 
@@ -743,6 +488,7 @@
             this.min2.Name = "min2";
             this.min2.Size = new System.Drawing.Size(149, 21);
             this.min2.TabIndex = 7;
+            this.min2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.min2_KeyPress);
             // 
             // label30
             // 
@@ -759,6 +505,7 @@
             this.max2.Name = "max2";
             this.max2.Size = new System.Drawing.Size(149, 21);
             this.max2.TabIndex = 6;
+            this.max2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.max2_KeyPress);
             // 
             // label31
             // 
@@ -775,6 +522,7 @@
             this.criteria1.Name = "criteria1";
             this.criteria1.Size = new System.Drawing.Size(98, 21);
             this.criteria1.TabIndex = 5;
+            this.criteria1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.criteria1_KeyPress);
             // 
             // label32
             // 
@@ -791,6 +539,7 @@
             this.dividePrice1.Name = "dividePrice1";
             this.dividePrice1.Size = new System.Drawing.Size(98, 21);
             this.dividePrice1.TabIndex = 4;
+            this.dividePrice1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dividePrice1_KeyPress);
             // 
             // listBox1
             // 
@@ -838,6 +587,7 @@
             this.content2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.content2.Size = new System.Drawing.Size(457, 97);
             this.content2.TabIndex = 10;
+            this.content2.TextChanged += new System.EventHandler(this.content2_TextChanged);
             // 
             // label34
             // 
@@ -851,10 +601,12 @@
             // title2
             // 
             this.title2.Location = new System.Drawing.Point(7, 93);
+            this.title2.MaxLength = 30;
             this.title2.Multiline = true;
             this.title2.Name = "title2";
             this.title2.Size = new System.Drawing.Size(457, 21);
             this.title2.TabIndex = 9;
+            this.title2.TextChanged += new System.EventHandler(this.title2_TextChanged);
             // 
             // label35
             // 
@@ -944,6 +696,7 @@
             this.lowestPrice.Name = "lowestPrice";
             this.lowestPrice.Size = new System.Drawing.Size(136, 21);
             this.lowestPrice.TabIndex = 12;
+            this.lowestPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lowestPrice_KeyPress);
             // 
             // lowestCheck
             // 
@@ -1001,6 +754,7 @@
             this.content3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.content3.Size = new System.Drawing.Size(457, 97);
             this.content3.TabIndex = 15;
+            this.content3.TextChanged += new System.EventHandler(this.content3_TextChanged);
             // 
             // label71
             // 
@@ -1014,10 +768,12 @@
             // title3
             // 
             this.title3.Location = new System.Drawing.Point(12, 88);
+            this.title3.MaxLength = 30;
             this.title3.Multiline = true;
             this.title3.Name = "title3";
             this.title3.Size = new System.Drawing.Size(457, 21);
             this.title3.TabIndex = 14;
+            this.title3.TextChanged += new System.EventHandler(this.title3_TextChanged);
             // 
             // label72
             // 
@@ -1050,6 +806,7 @@
             this.price2.Name = "price2";
             this.price2.Size = new System.Drawing.Size(136, 21);
             this.price2.TabIndex = 11;
+            this.price2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.price2_KeyPress);
             // 
             // MoneyNomal2
             // 
@@ -1130,6 +887,7 @@
             this.btnUk.TabStop = true;
             this.btnUk.Text = "억";
             this.btnUk.UseVisualStyleBackColor = true;
+            this.btnUk.CheckedChanged += new System.EventHandler(this.btnUk_CheckedChanged);
             // 
             // btnMan
             // 
@@ -1141,6 +899,7 @@
             this.btnMan.TabStop = true;
             this.btnMan.Text = "만";
             this.btnMan.UseVisualStyleBackColor = true;
+            this.btnMan.CheckedChanged += new System.EventHandler(this.btnMan_CheckedChanged);
             // 
             // btnNon
             // 
@@ -1152,6 +911,7 @@
             this.btnNon.TabStop = true;
             this.btnNon.Text = "없음";
             this.btnNon.UseVisualStyleBackColor = true;
+            this.btnNon.CheckedChanged += new System.EventHandler(this.btnNon_CheckedChanged);
             // 
             // label44
             // 
@@ -1168,6 +928,7 @@
             this.user_quantity.Name = "user_quantity";
             this.user_quantity.Size = new System.Drawing.Size(136, 21);
             this.user_quantity.TabIndex = 16;
+            this.user_quantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.user_quantity_KeyPress);
             // 
             // label38
             // 
@@ -1224,6 +985,7 @@
             this.content4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.content4.Size = new System.Drawing.Size(457, 97);
             this.content4.TabIndex = 20;
+            this.content4.TextChanged += new System.EventHandler(this.content4_TextChanged);
             // 
             // label40
             // 
@@ -1237,10 +999,12 @@
             // title4
             // 
             this.title4.Location = new System.Drawing.Point(8, 98);
+            this.title4.MaxLength = 30;
             this.title4.Multiline = true;
             this.title4.Name = "title4";
             this.title4.Size = new System.Drawing.Size(457, 21);
             this.title4.TabIndex = 19;
+            this.title4.TextChanged += new System.EventHandler(this.title4_TextChanged);
             // 
             // label41
             // 
@@ -1273,6 +1037,276 @@
             this.price3.Name = "price3";
             this.price3.Size = new System.Drawing.Size(136, 21);
             this.price3.TabIndex = 17;
+            this.price3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.price3_KeyPress);
+            // 
+            // MoneyDivide2
+            // 
+            this.MoneyDivide2.Controls.Add(this.dfLabel4);
+            this.MoneyDivide2.Controls.Add(this.Dserver5);
+            this.MoneyDivide2.Controls.Add(this.groupBox5);
+            this.MoneyDivide2.Controls.Add(this.label65);
+            this.MoneyDivide2.Controls.Add(this.criteria2);
+            this.MoneyDivide2.Controls.Add(this.label46);
+            this.MoneyDivide2.Controls.Add(this.dividePrice2);
+            this.MoneyDivide2.Controls.Add(this.label45);
+            this.MoneyDivide2.Controls.Add(this.max1);
+            this.MoneyDivide2.Controls.Add(this.label59);
+            this.MoneyDivide2.Controls.Add(this.min1);
+            this.MoneyDivide2.Controls.Add(this.label60);
+            this.MoneyDivide2.Controls.Add(this.listBox4);
+            this.MoneyDivide2.Controls.Add(this.button7);
+            this.MoneyDivide2.Controls.Add(this.button8);
+            this.MoneyDivide2.Controls.Add(this.label61);
+            this.MoneyDivide2.Controls.Add(this.content5);
+            this.MoneyDivide2.Controls.Add(this.label62);
+            this.MoneyDivide2.Controls.Add(this.title5);
+            this.MoneyDivide2.Controls.Add(this.label63);
+            this.MoneyDivide2.Controls.Add(this.name5);
+            this.MoneyDivide2.Location = new System.Drawing.Point(0, 0);
+            this.MoneyDivide2.Name = "MoneyDivide2";
+            this.MoneyDivide2.Size = new System.Drawing.Size(614, 394);
+            this.MoneyDivide2.TabIndex = 32;
+            // 
+            // dfLabel4
+            // 
+            this.dfLabel4.AutoSize = true;
+            this.dfLabel4.Location = new System.Drawing.Point(493, 98);
+            this.dfLabel4.Name = "dfLabel4";
+            this.dfLabel4.Size = new System.Drawing.Size(121, 12);
+            this.dfLabel4.TabIndex = 40;
+            this.dfLabel4.Text = "물품을 전달하실 서버";
+            this.dfLabel4.Visible = false;
+            // 
+            // Dserver5
+            // 
+            this.Dserver5.FormattingEnabled = true;
+            this.Dserver5.Items.AddRange(new object[] {
+            "스타트",
+            "디레지에",
+            "바칼",
+            "시로코",
+            "안톤",
+            "카시야스",
+            "카인",
+            "프레이",
+            "힐더",
+            "퍼스트-테스트(1군)",
+            "퍼스트-테스트(2군)",
+            "퍼스트-테스트",
+            "이벤트(시즌)서버",
+            "기타"});
+            this.Dserver5.Location = new System.Drawing.Point(375, 93);
+            this.Dserver5.Name = "Dserver5";
+            this.Dserver5.Size = new System.Drawing.Size(114, 20);
+            this.Dserver5.TabIndex = 39;
+            this.Dserver5.Visible = false;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.btnUk2);
+            this.groupBox5.Controls.Add(this.btnMan2);
+            this.groupBox5.Controls.Add(this.btnNon2);
+            this.groupBox5.Location = new System.Drawing.Point(103, -2);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(187, 24);
+            this.groupBox5.TabIndex = 38;
+            this.groupBox5.TabStop = false;
+            // 
+            // btnUk2
+            // 
+            this.btnUk2.AutoSize = true;
+            this.btnUk2.Location = new System.Drawing.Point(102, 4);
+            this.btnUk2.Name = "btnUk2";
+            this.btnUk2.Size = new System.Drawing.Size(35, 16);
+            this.btnUk2.TabIndex = 28;
+            this.btnUk2.TabStop = true;
+            this.btnUk2.Text = "억";
+            this.btnUk2.UseVisualStyleBackColor = true;
+            this.btnUk2.CheckedChanged += new System.EventHandler(this.btnUk2_CheckedChanged);
+            // 
+            // btnMan2
+            // 
+            this.btnMan2.AutoSize = true;
+            this.btnMan2.Location = new System.Drawing.Point(61, 4);
+            this.btnMan2.Name = "btnMan2";
+            this.btnMan2.Size = new System.Drawing.Size(35, 16);
+            this.btnMan2.TabIndex = 27;
+            this.btnMan2.TabStop = true;
+            this.btnMan2.Text = "만";
+            this.btnMan2.UseVisualStyleBackColor = true;
+            this.btnMan2.CheckedChanged += new System.EventHandler(this.btnMan2_CheckedChanged);
+            // 
+            // btnNon2
+            // 
+            this.btnNon2.AutoSize = true;
+            this.btnNon2.Location = new System.Drawing.Point(8, 4);
+            this.btnNon2.Name = "btnNon2";
+            this.btnNon2.Size = new System.Drawing.Size(47, 16);
+            this.btnNon2.TabIndex = 26;
+            this.btnNon2.TabStop = true;
+            this.btnNon2.Text = "없음";
+            this.btnNon2.UseVisualStyleBackColor = true;
+            this.btnNon2.CheckedChanged += new System.EventHandler(this.btnNon2_CheckedChanged);
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(300, 26);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(97, 12);
+            this.label65.TabIndex = 37;
+            this.label65.Text = "원에 판매합니다.";
+            // 
+            // criteria2
+            // 
+            this.criteria2.Location = new System.Drawing.Point(201, 22);
+            this.criteria2.Name = "criteria2";
+            this.criteria2.Size = new System.Drawing.Size(90, 21);
+            this.criteria2.TabIndex = 22;
+            this.criteria2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.criteria2_KeyPress);
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(113, 26);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(69, 12);
+            this.label46.TabIndex = 35;
+            this.label46.Text = "게임머니 당";
+            // 
+            // dividePrice2
+            // 
+            this.dividePrice2.Location = new System.Drawing.Point(14, 22);
+            this.dividePrice2.Name = "dividePrice2";
+            this.dividePrice2.Size = new System.Drawing.Size(90, 21);
+            this.dividePrice2.TabIndex = 21;
+            this.dividePrice2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dividePrice2_KeyPress);
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(155, 50);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(53, 12);
+            this.label45.TabIndex = 33;
+            this.label45.Text = "게임머니";
+            // 
+            // max1
+            // 
+            this.max1.Location = new System.Drawing.Point(13, 46);
+            this.max1.Name = "max1";
+            this.max1.Size = new System.Drawing.Size(136, 21);
+            this.max1.TabIndex = 23;
+            this.max1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.max1_KeyPress);
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(155, 73);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(53, 12);
+            this.label59.TabIndex = 31;
+            this.label59.Text = "게임머니";
+            // 
+            // min1
+            // 
+            this.min1.Location = new System.Drawing.Point(13, 69);
+            this.min1.Name = "min1";
+            this.min1.Size = new System.Drawing.Size(136, 21);
+            this.min1.TabIndex = 24;
+            this.min1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.min1_KeyPress);
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(11, 5);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(93, 12);
+            this.label60.TabIndex = 25;
+            this.label60.Text = "[거래수량 단위]";
+            // 
+            // listBox4
+            // 
+            this.listBox4.FormattingEnabled = true;
+            this.listBox4.ItemHeight = 12;
+            this.listBox4.Location = new System.Drawing.Point(14, 276);
+            this.listBox4.Name = "listBox4";
+            this.listBox4.Size = new System.Drawing.Size(457, 112);
+            this.listBox4.TabIndex = 31;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(478, 305);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 33;
+            this.button7.Text = "삭제";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.Button7_Click);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(478, 279);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 32;
+            this.button8.Text = "선택";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.Button8_Click);
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(477, 224);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(33, 12);
+            this.label61.TabIndex = 20;
+            this.label61.Text = "(0자)";
+            // 
+            // content5
+            // 
+            this.content5.Location = new System.Drawing.Point(14, 139);
+            this.content5.Multiline = true;
+            this.content5.Name = "content5";
+            this.content5.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.content5.Size = new System.Drawing.Size(457, 97);
+            this.content5.TabIndex = 27;
+            this.content5.TextChanged += new System.EventHandler(this.content5_TextChanged);
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(476, 119);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(33, 12);
+            this.label62.TabIndex = 18;
+            this.label62.Text = "(0자)";
+            // 
+            // title5
+            // 
+            this.title5.Location = new System.Drawing.Point(13, 116);
+            this.title5.MaxLength = 30;
+            this.title5.Multiline = true;
+            this.title5.Name = "title5";
+            this.title5.Size = new System.Drawing.Size(457, 21);
+            this.title5.TabIndex = 26;
+            this.title5.TextChanged += new System.EventHandler(this.title5_TextChanged);
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(177, 98);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(185, 12);
+            this.label63.TabIndex = 16;
+            this.label63.Text = "물품을 전달하실 본인의 캐릭터명";
+            // 
+            // name5
+            // 
+            this.name5.Location = new System.Drawing.Point(14, 92);
+            this.name5.Name = "name5";
+            this.name5.Size = new System.Drawing.Size(157, 21);
+            this.name5.TabIndex = 25;
             // 
             // panel1
             // 
@@ -2027,20 +2061,16 @@
             this.comboServer.TabIndex = 5;
             this.comboServer.Text = "서버 선택";
             // 
-            // Form4
+            // Form_ProductAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(810, 690);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "Form4";
+            this.Name = "Form_ProductAdd";
             this.Text = "등록 물품 추가";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            this.MoneyDivide2.ResumeLayout(false);
-            this.MoneyDivide2.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.ItemNomal2.ResumeLayout(false);
             this.ItemNomal2.PerformLayout();
             this.ItemDivide2.ResumeLayout(false);
@@ -2051,6 +2081,10 @@
             this.MoneyNomal2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.MoneyDivide2.ResumeLayout(false);
+            this.MoneyDivide2.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);

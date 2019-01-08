@@ -14,14 +14,14 @@ using System.Windows.Forms;
 
 namespace register_2
 {
-    public partial class Form4 : Form
+    public partial class Form_ProductAdd : Form
     {
         DataTable sendItem = new DataTable();
         DataRow row = null;
 
         public delegate void FormSendDataHandler(DataTable sendItem);
         public event FormSendDataHandler FormSendEvent;
-        public Form4()
+        public Form_ProductAdd()
         {
             InitializeComponent();
             btnSell.Checked = btnItem.Checked = btnNomal.Checked = true;
@@ -30,7 +30,7 @@ namespace register_2
 
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://www.itemmania.com/_xml/gamelist.xml");
             req.Method = "GET";
-            req.CookieContainer = Form3.cookie;
+            req.CookieContainer = Form_AccountAdd.cookie;
             HttpWebResponse response = (HttpWebResponse)req.GetResponse();
             Encoding encode = Encoding.GetEncoding("utf-8");
             Stream stReadData1 = response.GetResponseStream();
@@ -45,16 +45,6 @@ namespace register_2
                 index2 = strResult1.IndexOf("\" level", index2 + 1);
             }
             req.Abort();
-            /*
-            int selectRow = 0;
-            StringBuilder getstr = new StringBuilder();
-            while (Form1.GetPrivateProfileString("LOGIN", "ID" + selectRow, null, getstr, 1000, Form1.path) != 0)
-            {
-                Form1.GetPrivateProfileString("LOGIN", "ID" + selectRow, null, getstr, 1000, Form1.path);
-                comboID.Items.Add(getstr.ToString());
-                selectRow++;
-            }
-            */
 
             try
             {
@@ -98,29 +88,29 @@ namespace register_2
             button9.Enabled = true;
             button13.Enabled = false;
 
-            if(Form1.updateNum != -1)
+            if(Form_Main.updateNum != -1)
             {
                 button13.Enabled = true;
                 button9.Enabled = false;
-                comboID.Text = Form1.updateTable.Rows[0]["아이디"].ToString();
+                comboID.Text = Form_Main.updateTable.Rows[0]["아이디"].ToString();
                 comboID.Enabled = false;
-                if (Form1.updateTable.Rows[0]["매매구분"].ToString() == "판매")
+                if (Form_Main.updateTable.Rows[0]["매매구분"].ToString() == "판매")
                     btnSell.Checked = true;
                 else
                     btnBuy.Checked = true;
                 groupBox1.Enabled = false;
-                comboGame.Text = Form1.updateTable.Rows[0]["게임명"].ToString();
-                comboServer.Text = Form1.updateTable.Rows[0]["서버명"].ToString();
-                if (Form1.updateTable.Rows[0]["물품종류"].ToString() == "item")
+                comboGame.Text = Form_Main.updateTable.Rows[0]["게임명"].ToString();
+                comboServer.Text = Form_Main.updateTable.Rows[0]["서버명"].ToString();
+                if (Form_Main.updateTable.Rows[0]["물품종류"].ToString() == "item")
                     btnItem.Checked = true;
-                else if (Form1.updateTable.Rows[0]["물품종류"].ToString() == "money")
+                else if (Form_Main.updateTable.Rows[0]["물품종류"].ToString() == "money")
                     btnMoney.Checked = true;
                 else
                     btnOther.Checked = true;
                 groupBox2.Enabled = false;
-                if (Form1.updateTable.Rows[0]["일반분할흥정"].ToString() == "general")
+                if (Form_Main.updateTable.Rows[0]["일반분할흥정"].ToString() == "general")
                     btnNomal.Checked = true;
-                else if (Form1.updateTable.Rows[0]["일반분할흥정"].ToString() == "division")
+                else if (Form_Main.updateTable.Rows[0]["일반분할흥정"].ToString() == "division")
                     btnDivide.Checked = true;
                 else
                     btnHaggle.Checked = true;
@@ -130,13 +120,13 @@ namespace register_2
                 {
                     ItemNomal1.BringToFront();
                     ItemNomal2.BringToFront();
-                    price1.Text = Form1.updateTable.Rows[0]["가격"].ToString();
-                    name1.Text = Form1.updateTable.Rows[0]["캐릭터명"].ToString();
-                    Dserver1.Text = Form1.updateTable.Rows[0]["전달서버"].ToString();
-                    title1.Text = Form1.updateTable.Rows[0]["제목"].ToString();
-                    content1.Text = Form1.updateTable.Rows[0]["내용"].ToString();
+                    price1.Text = Form_Main.updateTable.Rows[0]["가격"].ToString();
+                    name1.Text = Form_Main.updateTable.Rows[0]["캐릭터명"].ToString();
+                    Dserver1.Text = Form_Main.updateTable.Rows[0]["전달서버"].ToString();
+                    title1.Text = Form_Main.updateTable.Rows[0]["제목"].ToString();
+                    content1.Text = Form_Main.updateTable.Rows[0]["내용"].ToString();
                     string[] image;
-                    image = Form1.updateTable.Rows[0]["이미지"].ToString().Split('|');
+                    image = Form_Main.updateTable.Rows[0]["이미지"].ToString().Split('|');
                     for (int i = 0; i < image.Length; i++)
                         listBox2.Items.Add(image[i]);
                 }
@@ -144,16 +134,16 @@ namespace register_2
                 {
                     ItemDivide1.BringToFront();
                     ItemDivide2.BringToFront();
-                    dividePrice1.Text = Form1.updateTable.Rows[0]["분할단위"].ToString();
-                    criteria1.Text = Form1.updateTable.Rows[0]["기준가격"].ToString();
-                    max2.Text = Form1.updateTable.Rows[0]["최대수량"].ToString();
-                    min2.Text = Form1.updateTable.Rows[0]["최소수량"].ToString();
-                    name2.Text = Form1.updateTable.Rows[0]["캐릭터명"].ToString();
-                    Dserver2.Text = Form1.updateTable.Rows[0]["전달서버"].ToString();
-                    title2.Text = Form1.updateTable.Rows[0]["제목"].ToString();
-                    content2.Text = Form1.updateTable.Rows[0]["내용"].ToString();
+                    dividePrice1.Text = Form_Main.updateTable.Rows[0]["분할단위"].ToString();
+                    criteria1.Text = Form_Main.updateTable.Rows[0]["기준가격"].ToString();
+                    max2.Text = Form_Main.updateTable.Rows[0]["최대수량"].ToString();
+                    min2.Text = Form_Main.updateTable.Rows[0]["최소수량"].ToString();
+                    name2.Text = Form_Main.updateTable.Rows[0]["캐릭터명"].ToString();
+                    Dserver2.Text = Form_Main.updateTable.Rows[0]["전달서버"].ToString();
+                    title2.Text = Form_Main.updateTable.Rows[0]["제목"].ToString();
+                    content2.Text = Form_Main.updateTable.Rows[0]["내용"].ToString();
                     string[] image;
-                    image = Form1.updateTable.Rows[0]["이미지"].ToString().Split('|');
+                    image = Form_Main.updateTable.Rows[0]["이미지"].ToString().Split('|');
                     for (int i = 0; i < image.Length; i++)
                         listBox1.Items.Add(image[i]);
                 }
@@ -161,14 +151,14 @@ namespace register_2
                 {
                     ItemHaggle1.BringToFront();
                     ItemHaggle2.BringToFront();
-                    price2.Text = Form1.updateTable.Rows[0]["가격"].ToString();
-                    lowestCheck.Text = Form1.updateTable.Rows[0]["최저가격체크"].ToString();
-                    lowestPrice.Text = Form1.updateTable.Rows[0]["최저가격"].ToString();
-                    name3.Text = Form1.updateTable.Rows[0]["캐릭터명"].ToString();
-                    title3.Text = Form1.updateTable.Rows[0]["제목"].ToString();
-                    content3.Text = Form1.updateTable.Rows[0]["내용"].ToString();
+                    price2.Text = Form_Main.updateTable.Rows[0]["가격"].ToString();
+                    lowestCheck.Text = Form_Main.updateTable.Rows[0]["최저가격체크"].ToString();
+                    lowestPrice.Text = Form_Main.updateTable.Rows[0]["최저가격"].ToString();
+                    name3.Text = Form_Main.updateTable.Rows[0]["캐릭터명"].ToString();
+                    title3.Text = Form_Main.updateTable.Rows[0]["제목"].ToString();
+                    content3.Text = Form_Main.updateTable.Rows[0]["내용"].ToString();
                     string[] image;
-                    image = Form1.updateTable.Rows[0]["이미지"].ToString().Split('|');
+                    image = Form_Main.updateTable.Rows[0]["이미지"].ToString().Split('|');
                     for (int i = 0; i < image.Length; i++)
                         listBox5.Items.Add(image[i]);
                 }
@@ -176,13 +166,13 @@ namespace register_2
                 {
                     ItemNomal1.BringToFront();
                     ItemNomal2.BringToFront();
-                    price1.Text = Form1.updateTable.Rows[0]["가격"].ToString();
-                    name1.Text = Form1.updateTable.Rows[0]["캐릭터명"].ToString();
-                    Dserver1.Text = Form1.updateTable.Rows[0]["전달서버"].ToString();
-                    title1.Text = Form1.updateTable.Rows[0]["제목"].ToString();
-                    content1.Text = Form1.updateTable.Rows[0]["내용"].ToString();
+                    price1.Text = Form_Main.updateTable.Rows[0]["가격"].ToString();
+                    name1.Text = Form_Main.updateTable.Rows[0]["캐릭터명"].ToString();
+                    Dserver1.Text = Form_Main.updateTable.Rows[0]["전달서버"].ToString();
+                    title1.Text = Form_Main.updateTable.Rows[0]["제목"].ToString();
+                    content1.Text = Form_Main.updateTable.Rows[0]["내용"].ToString();
                     string[] image;
-                    image = Form1.updateTable.Rows[0]["이미지"].ToString().Split('|');
+                    image = Form_Main.updateTable.Rows[0]["이미지"].ToString().Split('|');
                     for (int i = 0; i < image.Length; i++)
                         listBox2.Items.Add(image[i]);
                 }
@@ -190,16 +180,16 @@ namespace register_2
                 {
                     ItemDivide1.BringToFront();
                     ItemDivide2.BringToFront();
-                    dividePrice1.Text = Form1.updateTable.Rows[0]["분할단위"].ToString();
-                    criteria1.Text = Form1.updateTable.Rows[0]["기준가격"].ToString();
-                    max2.Text = Form1.updateTable.Rows[0]["최대수량"].ToString();
-                    min2.Text = Form1.updateTable.Rows[0]["최소수량"].ToString();
-                    name2.Text = Form1.updateTable.Rows[0]["캐릭터명"].ToString();
-                    Dserver2.Text = Form1.updateTable.Rows[0]["전달서버"].ToString();
-                    title2.Text = Form1.updateTable.Rows[0]["제목"].ToString();
-                    content2.Text = Form1.updateTable.Rows[0]["내용"].ToString();
+                    dividePrice1.Text = Form_Main.updateTable.Rows[0]["분할단위"].ToString();
+                    criteria1.Text = Form_Main.updateTable.Rows[0]["기준가격"].ToString();
+                    max2.Text = Form_Main.updateTable.Rows[0]["최대수량"].ToString();
+                    min2.Text = Form_Main.updateTable.Rows[0]["최소수량"].ToString();
+                    name2.Text = Form_Main.updateTable.Rows[0]["캐릭터명"].ToString();
+                    Dserver2.Text = Form_Main.updateTable.Rows[0]["전달서버"].ToString();
+                    title2.Text = Form_Main.updateTable.Rows[0]["제목"].ToString();
+                    content2.Text = Form_Main.updateTable.Rows[0]["내용"].ToString();
                     string[] image;
-                    image = Form1.updateTable.Rows[0]["이미지"].ToString().Split('|');
+                    image = Form_Main.updateTable.Rows[0]["이미지"].ToString().Split('|');
                     for (int i = 0; i < image.Length; i++)
                         listBox1.Items.Add(image[i]);
                 }
@@ -207,14 +197,14 @@ namespace register_2
                 {
                     ItemHaggle1.BringToFront();
                     ItemHaggle2.BringToFront();
-                    price2.Text = Form1.updateTable.Rows[0]["가격"].ToString();
-                    lowestCheck.Text = Form1.updateTable.Rows[0]["최저가격체크"].ToString();
-                    lowestPrice.Text = Form1.updateTable.Rows[0]["최저가격"].ToString();
-                    name3.Text = Form1.updateTable.Rows[0]["캐릭터명"].ToString();
-                    title3.Text = Form1.updateTable.Rows[0]["제목"].ToString();
-                    content3.Text = Form1.updateTable.Rows[0]["내용"].ToString();
+                    price2.Text = Form_Main.updateTable.Rows[0]["가격"].ToString();
+                    lowestCheck.Text = Form_Main.updateTable.Rows[0]["최저가격체크"].ToString();
+                    lowestPrice.Text = Form_Main.updateTable.Rows[0]["최저가격"].ToString();
+                    name3.Text = Form_Main.updateTable.Rows[0]["캐릭터명"].ToString();
+                    title3.Text = Form_Main.updateTable.Rows[0]["제목"].ToString();
+                    content3.Text = Form_Main.updateTable.Rows[0]["내용"].ToString();
                     string[] image;
-                    image = Form1.updateTable.Rows[0]["이미지"].ToString().Split('|');
+                    image = Form_Main.updateTable.Rows[0]["이미지"].ToString().Split('|');
                     for (int i = 0; i < image.Length; i++)
                         listBox5.Items.Add(image[i]);
                 }
@@ -222,22 +212,22 @@ namespace register_2
                 {
                     MoneyNomal1.BringToFront();
                     MoneyNomal2.BringToFront();
-                    if (Form1.updateTable.Rows[0]["거래수량단위"].ToString() == "1")
+                    if (Form_Main.updateTable.Rows[0]["거래수량단위"].ToString() == "1")
                         btnNon.Checked = true;
-                    else if (Form1.updateTable.Rows[0]["거래수량단위"].ToString() == "만")
+                    else if (Form_Main.updateTable.Rows[0]["거래수량단위"].ToString() == "만")
                         btnMan.Checked = true;
                     else
                         btnUk.Checked = true;
-                    user_quantity.Text = Form1.updateTable.Rows[0]["거래수량"].ToString();
-                    price3.Text = Form1.updateTable.Rows[0]["가격"].ToString();
-                    name4.Text = Form1.updateTable.Rows[0]["캐릭터명"].ToString();
-                    title4.Text = Form1.updateTable.Rows[0]["제목"].ToString();
-                    content4.Text = Form1.updateTable.Rows[0]["내용"].ToString();
-                    Dserver4.Text = Form1.updateTable.Rows[0]["전달서버"].ToString();
-                    if (Form1.updateTable.Rows[0]["즉시구매"].ToString() == "1")
+                    user_quantity.Text = Form_Main.updateTable.Rows[0]["거래수량"].ToString();
+                    price3.Text = Form_Main.updateTable.Rows[0]["가격"].ToString();
+                    name4.Text = Form_Main.updateTable.Rows[0]["캐릭터명"].ToString();
+                    title4.Text = Form_Main.updateTable.Rows[0]["제목"].ToString();
+                    content4.Text = Form_Main.updateTable.Rows[0]["내용"].ToString();
+                    Dserver4.Text = Form_Main.updateTable.Rows[0]["전달서버"].ToString();
+                    if (Form_Main.updateTable.Rows[0]["즉시구매"].ToString() == "1")
                         rightoff.Checked = true;
                     string[] image;
-                    image = Form1.updateTable.Rows[0]["이미지"].ToString().Split('|');
+                    image = Form_Main.updateTable.Rows[0]["이미지"].ToString().Split('|');
                     for (int i = 0; i < image.Length; i++)
                         listBox3.Items.Add(image[i]);
                 }
@@ -245,24 +235,24 @@ namespace register_2
                 {
                     MoneyDivide1.BringToFront();
                     MoneyDivide2.BringToFront();
-                    if (Form1.updateTable.Rows[0]["거래수량단위"].ToString() == "1")
+                    if (Form_Main.updateTable.Rows[0]["거래수량단위"].ToString() == "1")
                         btnNon2.Checked = true;
-                    else if (Form1.updateTable.Rows[0]["거래수량단위"].ToString() == "만")
+                    else if (Form_Main.updateTable.Rows[0]["거래수량단위"].ToString() == "만")
                         btnMan2.Checked = true;
                     else
                         btnUk2.Checked = true;
-                    dividePrice2.Text = Form1.updateTable.Rows[0]["분할단위"].ToString();
-                    criteria2.Text = Form1.updateTable.Rows[0]["기준가격"].ToString();
-                    max1.Text = Form1.updateTable.Rows[0]["최대수량"].ToString();
-                    min1.Text = Form1.updateTable.Rows[0]["최소수량"].ToString();
-                    name5.Text = Form1.updateTable.Rows[0]["캐릭터명"].ToString();
-                    Dserver5.Text = Form1.updateTable.Rows[0]["전달서버"].ToString();
-                    title5.Text = Form1.updateTable.Rows[0]["제목"].ToString();
-                    content5.Text = Form1.updateTable.Rows[0]["내용"].ToString();
-                    if (Form1.updateTable.Rows[0]["즉시구매"].ToString() == "1")
+                    dividePrice2.Text = Form_Main.updateTable.Rows[0]["분할단위"].ToString();
+                    criteria2.Text = Form_Main.updateTable.Rows[0]["기준가격"].ToString();
+                    max1.Text = Form_Main.updateTable.Rows[0]["최대수량"].ToString();
+                    min1.Text = Form_Main.updateTable.Rows[0]["최소수량"].ToString();
+                    name5.Text = Form_Main.updateTable.Rows[0]["캐릭터명"].ToString();
+                    Dserver5.Text = Form_Main.updateTable.Rows[0]["전달서버"].ToString();
+                    title5.Text = Form_Main.updateTable.Rows[0]["제목"].ToString();
+                    content5.Text = Form_Main.updateTable.Rows[0]["내용"].ToString();
+                    if (Form_Main.updateTable.Rows[0]["즉시구매"].ToString() == "1")
                         rightoff.Checked = true;
                     string[] image;
-                    image = Form1.updateTable.Rows[0]["이미지"].ToString().Split('|');
+                    image = Form_Main.updateTable.Rows[0]["이미지"].ToString().Split('|');
                     for (int i = 0; i < image.Length; i++)
                         listBox4.Items.Add(image[i]);
                 }
@@ -279,8 +269,8 @@ namespace register_2
                     panel6.Visible = true;
                     btnHaggle.Visible = false;
                 }
-                Form1.updateTable.Rows.Remove(Form1.updateTable.Rows[0]);
-                Form1.updateNum = -1;
+                Form_Main.updateTable.Rows.Remove(Form_Main.updateTable.Rows[0]);
+                Form_Main.updateNum = -1;
             }
         }
 
@@ -402,7 +392,7 @@ namespace register_2
             comboServer.Items.Add("전체 추가");
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://www.itemmania.com/_xml/gamelist.xml");
             req.Method = "GET";
-            req.CookieContainer = Form3.cookie;
+            req.CookieContainer = Form_AccountAdd.cookie;
             HttpWebResponse response = (HttpWebResponse)req.GetResponse();
             Encoding encode = Encoding.GetEncoding("utf-8");
             Stream stReadData1 = response.GetResponseStream();
@@ -423,7 +413,7 @@ namespace register_2
 
             req = (HttpWebRequest)WebRequest.Create("http://www.itemmania.com/_xml/serverlist.php?game="+ strResult1.Substring(index1, index2 - index1));
             req.Method = "GET";
-            req.CookieContainer = Form3.cookie;
+            req.CookieContainer = Form_AccountAdd.cookie;
             response = (HttpWebResponse)req.GetResponse();
             stReadData1 = response.GetResponseStream();
             srReadData1 = new StreamReader(stReadData1, encode);
@@ -1732,21 +1722,21 @@ namespace register_2
                 }
             }
             if (아이디 == "")
-                MessageBox.Show("아이디를 선택해주세요");
+                MessageBox.Show("아이디를 선택해 주세요");
             else if (게임명 == "")
-                MessageBox.Show("게임명을 선택해주세요");
+                MessageBox.Show("게임명을 선택해 주세요");
             else if (서버명 == "")
-                MessageBox.Show("서버명을 선택해주세요");
+                MessageBox.Show("서버명을 선택해 주세요");
             else if (일반분할흥정 == "general")
             {
                 if (가격 == "")
-                    MessageBox.Show("가격을 입력해주세요");
+                    MessageBox.Show("가격을 입력해 주세요");
                 else if (캐릭터명 == "")
-                    MessageBox.Show("캐릭터명을 입력해주세요");
+                    MessageBox.Show("캐릭터명을 입력해 주세요");
                 else if (제목 == "")
-                    MessageBox.Show("제목을 입력해주세요");
+                    MessageBox.Show("제목을 입력해 주세요");
                 else if (내용 == "")
-                    MessageBox.Show("내용을 입력해주세요");
+                    MessageBox.Show("내용을 입력해 주세요");
                 else
                 {
 
@@ -1757,7 +1747,7 @@ namespace register_2
                         string ConnectionString = string.Format("Data Source={0};Version=3;", DbFile);
                         SQLiteConnection sqliteConn = new SQLiteConnection(ConnectionString);
                         sqliteConn.Open();
-                        string strsql = "UPDATE regist SET 아이디='" + 아이디 + "',매매구분='" + 매매구분 + "',게임명='" + 게임명 + "',서버명='" + 서버명 + "',물품종류='" + 물품종류 + "',일반분할흥정='" + 일반분할흥정 + "',제목='" + 제목 + "',내용='" + 내용 + "',가격='" + 가격 + "',거래수량='" + 거래수량 + "',거래수량단위='" + 거래수량단위 + "',최대수량='" + 최대수량 + "',최소수량='" + 최소수량 + "',분할단위='" + 분할단위 + "',즉시구매='" + 즉시구매 + "',전달서버='" + 전달서버 + "',캐릭터명='" + 캐릭터명 + "',기준가격='" + 기준가격 + "',최저가격체크='" + 최저가격체크 + "',최저가격='" + 최저가격 + "',이미지='" + 이미지 + "'  where rowid IN (SELECT rowid FROM regist LIMIT " + Form1.updateNum + ",1)";
+                        string strsql = "UPDATE regist SET 아이디='" + 아이디 + "',매매구분='" + 매매구분 + "',게임명='" + 게임명 + "',서버명='" + 서버명 + "',물품종류='" + 물품종류 + "',일반분할흥정='" + 일반분할흥정 + "',제목='" + 제목 + "',내용='" + 내용 + "',가격='" + 가격 + "',거래수량='" + 거래수량 + "',거래수량단위='" + 거래수량단위 + "',최대수량='" + 최대수량 + "',최소수량='" + 최소수량 + "',분할단위='" + 분할단위 + "',즉시구매='" + 즉시구매 + "',전달서버='" + 전달서버 + "',캐릭터명='" + 캐릭터명 + "',기준가격='" + 기준가격 + "',최저가격체크='" + 최저가격체크 + "',최저가격='" + 최저가격 + "',이미지='" + 이미지 + "'  where rowid IN (SELECT rowid FROM regist LIMIT " + Form_Main.updateNum + ",1)";
                         SQLiteCommand cmd = new SQLiteCommand(strsql, sqliteConn);
                         cmd.ExecuteNonQuery();
 
@@ -1782,8 +1772,7 @@ namespace register_2
                     {
                         MessageBox.Show(ex.Message);
                     }
-                    Form1.updateNum = -1;
-                    Form1.updateTable = new DataTable();
+                    Form_Main.updateTable = new DataTable();
                     this.FormSendEvent(sendItem);
 
                     this.Close();
@@ -1792,19 +1781,19 @@ namespace register_2
             else if(일반분할흥정 == "division")
             {
                 if(분할단위 =="")
-                    MessageBox.Show("분할단위를 입력해주세요");
+                    MessageBox.Show("분할단위를 입력해 주세요");
                 else if (기준가격 == "")
-                    MessageBox.Show("기준가격을 입력해주세요");
+                    MessageBox.Show("기준가격을 입력해 주세요");
                 else if (최대수량 == "")
-                    MessageBox.Show("최대수량을 입력해주세요");
+                    MessageBox.Show("최대수량을 입력해 주세요");
                 else if (최소수량 == "")
-                    MessageBox.Show("최소수량을 입력해주세요");
+                    MessageBox.Show("최소수량을 입력해 주세요");
                 else if (캐릭터명 == "")
-                    MessageBox.Show("캐릭터명을 입력해주세요");
+                    MessageBox.Show("캐릭터명을 입력해 주세요");
                 else if (제목 == "")
-                    MessageBox.Show("제목을 입력해주세요");
+                    MessageBox.Show("제목을 입력해 주세요");
                 else if (내용 == "")
-                    MessageBox.Show("내용을 입력해주세요");
+                    MessageBox.Show("내용을 입력해 주세요");
                 else
                 {
 
@@ -1815,7 +1804,7 @@ namespace register_2
                         string ConnectionString = string.Format("Data Source={0};Version=3;", DbFile);
                         SQLiteConnection sqliteConn = new SQLiteConnection(ConnectionString);
                         sqliteConn.Open();
-                        string strsql = "UPDATE regist SET 아이디='" + 아이디 + "',매매구분='" + 매매구분 + "',게임명='" + 게임명 + "',서버명='" + 서버명 + "',물품종류='" + 물품종류 + "',일반분할흥정='" + 일반분할흥정 + "',제목='" + 제목 + "',내용='" + 내용 + "',가격='" + 가격 + "',거래수량='" + 거래수량 + "',거래수량단위='" + 거래수량단위 + "',최대수량='" + 최대수량 + "',최소수량='" + 최소수량 + "',분할단위='" + 분할단위 + "',즉시구매='" + 즉시구매 + "',전달서버='" + 전달서버 + "',캐릭터명='" + 캐릭터명 + "',기준가격='" + 기준가격 + "',최저가격체크='" + 최저가격체크 + "',최저가격='" + 최저가격 + "',이미지='" + 이미지 + "'  where rowid IN (SELECT rowid FROM regist LIMIT " + Form1.updateNum + ",1)";
+                        string strsql = "UPDATE regist SET 아이디='" + 아이디 + "',매매구분='" + 매매구분 + "',게임명='" + 게임명 + "',서버명='" + 서버명 + "',물품종류='" + 물품종류 + "',일반분할흥정='" + 일반분할흥정 + "',제목='" + 제목 + "',내용='" + 내용 + "',가격='" + 가격 + "',거래수량='" + 거래수량 + "',거래수량단위='" + 거래수량단위 + "',최대수량='" + 최대수량 + "',최소수량='" + 최소수량 + "',분할단위='" + 분할단위 + "',즉시구매='" + 즉시구매 + "',전달서버='" + 전달서버 + "',캐릭터명='" + 캐릭터명 + "',기준가격='" + 기준가격 + "',최저가격체크='" + 최저가격체크 + "',최저가격='" + 최저가격 + "',이미지='" + 이미지 + "'  where rowid IN (SELECT rowid FROM regist LIMIT " + Form_Main.updateNum + ",1)";
                         SQLiteCommand cmd = new SQLiteCommand(strsql, sqliteConn);
                         cmd.ExecuteNonQuery();
 
@@ -1840,8 +1829,7 @@ namespace register_2
                     {
                         MessageBox.Show(ex.Message);
                     }
-                    Form1.updateNum = -1;
-                    Form1.updateTable = new DataTable();
+                    Form_Main.updateTable = new DataTable();
                     this.FormSendEvent(sendItem);
 
                     this.Close();
@@ -1867,7 +1855,7 @@ namespace register_2
                         string ConnectionString = string.Format("Data Source={0};Version=3;", DbFile);
                         SQLiteConnection sqliteConn = new SQLiteConnection(ConnectionString);
                         sqliteConn.Open();
-                        string strsql = "UPDATE regist SET 아이디='" + 아이디 + "',매매구분='" + 매매구분 + "',게임명='" + 게임명 + "',서버명='" + 서버명 + "',물품종류='" + 물품종류 + "',일반분할흥정='" + 일반분할흥정 + "',제목='" + 제목 + "',내용='" + 내용 + "',가격='" + 가격 + "',거래수량='" + 거래수량 + "',거래수량단위='" + 거래수량단위 + "',최대수량='" + 최대수량 + "',최소수량='" + 최소수량 + "',분할단위='" + 분할단위 + "',즉시구매='" + 즉시구매 + "',전달서버='" + 전달서버 + "',캐릭터명='" + 캐릭터명 + "',기준가격='" + 기준가격 + "',최저가격체크='" + 최저가격체크 + "',최저가격='" + 최저가격 + "',이미지='" + 이미지 + "'  where rowid IN (SELECT rowid FROM regist LIMIT " + Form1.updateNum + ",1)";
+                        string strsql = "UPDATE regist SET 아이디='" + 아이디 + "',매매구분='" + 매매구분 + "',게임명='" + 게임명 + "',서버명='" + 서버명 + "',물품종류='" + 물품종류 + "',일반분할흥정='" + 일반분할흥정 + "',제목='" + 제목 + "',내용='" + 내용 + "',가격='" + 가격 + "',거래수량='" + 거래수량 + "',거래수량단위='" + 거래수량단위 + "',최대수량='" + 최대수량 + "',최소수량='" + 최소수량 + "',분할단위='" + 분할단위 + "',즉시구매='" + 즉시구매 + "',전달서버='" + 전달서버 + "',캐릭터명='" + 캐릭터명 + "',기준가격='" + 기준가격 + "',최저가격체크='" + 최저가격체크 + "',최저가격='" + 최저가격 + "',이미지='" + 이미지 + "'  where rowid IN (SELECT rowid FROM regist LIMIT " + Form_Main.updateNum + ",1)";
                         SQLiteCommand cmd = new SQLiteCommand(strsql, sqliteConn);
                         cmd.ExecuteNonQuery();
 
@@ -1892,13 +1880,202 @@ namespace register_2
                     {
                         MessageBox.Show(ex.Message);
                     }
-                    Form1.updateNum = -1;
-                    Form1.updateTable = new DataTable();
+                    Form_Main.updateTable = new DataTable();
                     this.FormSendEvent(sendItem);
 
                     this.Close();
                 }
             }
+        }
+
+        private void title1_TextChanged(object sender, EventArgs e)
+        {
+            label10.Text = "("+title1.TextLength.ToString()+"자)";
+        }
+
+        private void content1_TextChanged(object sender, EventArgs e)
+        {
+            label9.Text = "(" + content1.TextLength.ToString() + "자)";
+        }
+
+        private void title2_TextChanged(object sender, EventArgs e)
+        {
+            label34.Text = "(" + title2.TextLength.ToString() + "자)";
+        }
+
+        private void content2_TextChanged(object sender, EventArgs e)
+        {
+            label33.Text = "(" + content2.TextLength.ToString() + "자)";
+        }
+
+        private void title3_TextChanged(object sender, EventArgs e)
+        {
+            label71.Text = "(" + title3.TextLength.ToString() + "자)";
+        }
+
+        private void content3_TextChanged(object sender, EventArgs e)
+        {
+            label70.Text = "(" + content2.TextLength.ToString() + "자)";
+        }
+
+        private void title4_TextChanged(object sender, EventArgs e)
+        {
+            label40.Text = "(" + title4.TextLength.ToString() + "자)";
+        }
+
+        private void content4_TextChanged(object sender, EventArgs e)
+        {
+            label39.Text = "(" + content4.TextLength.ToString() + "자)";
+        }
+
+        private void title5_TextChanged(object sender, EventArgs e)
+        {
+            label62.Text = "(" + title5.TextLength.ToString() + "자)";
+        }
+
+        private void content5_TextChanged(object sender, EventArgs e)
+        {
+            label61.Text = "(" + content5.TextLength.ToString() + "자)";
+        }
+
+        private void price1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void dividePrice1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void criteria1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void max2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void min2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void price2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void lowestPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void user_quantity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void price3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void dividePrice2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void criteria2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void max1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void min1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnMan_CheckedChanged(object sender, EventArgs e)
+        {
+            if (btnMan.Checked == true)
+                label44.Text = "만 게임머니";
+        }
+
+        private void btnNon_CheckedChanged(object sender, EventArgs e)
+        {
+            if (btnNon.Checked == true)
+                label44.Text = "게임머니";
+        }
+
+        private void btnUk_CheckedChanged(object sender, EventArgs e)
+        {
+            if (btnUk.Checked == true)
+                label44.Text = "억 게임머니";
+        }
+
+        private void btnMan2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (btnMan2.Checked == true)
+                label46.Text = "만 게임머니 당";
+        }
+
+        private void btnUk2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (btnUk2.Checked == true)
+                label46.Text = "억 게임머니 당";
+        }
+
+        private void btnNon2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (btnNon2.Checked == true)
+                label46.Text = "게임머니 당";
         }
     }
 }

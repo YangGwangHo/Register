@@ -15,7 +15,7 @@ using System.Diagnostics;
 
 namespace register_2
 {
-    public partial class Form3 : Form
+    public partial class Form_AccountAdd : Form
     {
         
         public static CookieContainer cookie = new CookieContainer();
@@ -25,7 +25,7 @@ namespace register_2
 
 
 
-        public Form3()
+        public Form_AccountAdd()
         {
             InitializeComponent();
             button1.Enabled = false;
@@ -37,11 +37,8 @@ namespace register_2
         }
 
         private void Button2_Click(object sender, EventArgs e)
-        {
-            
-            string id = txtID.Text;
-            string pwd = txtPWD.Text;
-            string sendData = "user_id=" + id + "&user_password=" + pwd;
+        {            
+            string sendData = "user_id=" + txtID.Text + "&user_password=" + txtPWD.Text;
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create("https://www.itemmania.com/portal/user/login_form_ok.php");
             req.Method = "POST";
             req.ContentType = "application/x-www-form-urlencoded; charset=UTF-8";
@@ -96,17 +93,7 @@ namespace register_2
         }
 
         private void Button1_Click(object sender, EventArgs e)
-        {/*
-            int i = 0;
-            StringBuilder getstr = new StringBuilder();
-            while(Form1.GetPrivateProfileString("LOGIN", "ID" + i, null, getstr, 1000, Form1.path) != 0)
-            {
-                i++;
-            }
-
-            Form1.WritePrivateProfileString("LOGIN", "ID"+i, txtID.Text, Form1.path);
-            Form1.WritePrivateProfileString("LOGIN", "PWD"+i, txtPWD.Text, Form1.path);
-            */
+        {
             try
             {
 

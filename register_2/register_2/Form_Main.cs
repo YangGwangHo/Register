@@ -19,7 +19,7 @@ using System.Collections;
 
 namespace register_2
 {
-    public partial class Form1 : Form
+    public partial class Form_Main : Form
     {
         public static DateTime Delay(int MS)
         {
@@ -92,7 +92,7 @@ namespace register_2
         public static DataTable updateTable = new DataTable();
         public static bool sellDeleteCheck = false;
         public static int sellDeleteTime = 0;
-        public Form1()
+        public Form_Main()
         {
             InitializeComponent();
             this.Load += Form1_Load;
@@ -238,24 +238,24 @@ namespace register_2
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms["Form2"] is Form2 form2)
+            if (Application.OpenForms["Form2"] is Form_AccountList form2)
             {
                 form2.Focus();
                 return;
             }
-            form2 = new Form2();
+            form2 = new Form_AccountList();
             form2.ShowDialog();
         }
 
         private void AddProduct_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms["Form4"] is Form4 form4)
+            if (Application.OpenForms["Form4"] is Form_ProductAdd form4)
             {
                 form4.Focus();
                 return;
             }
-            form4 = new Form4();
-            form4.FormSendEvent += new Form4.FormSendDataHandler(ItemAddEventMethod);
+            form4 = new Form_ProductAdd();
+            form4.FormSendEvent += new Form_ProductAdd.FormSendDataHandler(ItemAddEventMethod);
             form4.ShowDialog();
         }
 
@@ -395,16 +395,19 @@ namespace register_2
         }
         private void Button2_Click(object sender, EventArgs e) //삭제
         {
-            if(MessageBox.Show(listView1.SelectedItems.Count.ToString() + "개의 물품을 삭제하시겠습니까?","삭제",MessageBoxButtons.YesNo)==DialogResult.Yes)
+            if (listView1.SelectedItems.Count != 0)
             {
-                int index = listView1.SelectedItems.Count;
-                int i = 0;
-                while (index > i)
+                if (MessageBox.Show(listView1.SelectedItems.Count.ToString() + "개의 물품을 삭제하시겠습니까?", "삭제", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    Remove(i);
-                    i++;
+                    int index = listView1.SelectedItems.Count;
+                    int i = 0;
+                    while (index > i)
+                    {
+                        Remove(i);
+                        i++;
+                    }
+                    label1.Text = "물품개수 : " + listView1.Items.Count.ToString() + "개";
                 }
-                label1.Text = "물품개수 : " + listView1.Items.Count.ToString() + "개";
             }
         }
 
@@ -459,13 +462,13 @@ namespace register_2
             {
                 MessageBox.Show(ex.Message);
             }
-            if (Application.OpenForms["Form4"] is Form4 form4)
+            if (Application.OpenForms["Form4"] is Form_ProductAdd form4)
             {
                 form4.Focus();
                 return;
             }
-            form4 = new Form4();
-            form4.FormSendEvent += new Form4.FormSendDataHandler(ItemUpdateEventMethod);
+            form4 = new Form_ProductAdd();
+            form4.FormSendEvent += new Form_ProductAdd.FormSendDataHandler(ItemUpdateEventMethod);
             form4.ShowDialog();
 
             Debug.WriteLine(listView1.SelectedItems[0].Text);
@@ -618,17 +621,50 @@ namespace register_2
                     {
                         try
                         {
-
-                            int price = Int32.Parse(listView1.SelectedItems[i].SubItems[7].Text) + 100;
+                            string division = "";
                             string DbFile = "data.dat";
                             string ConnectionString = string.Format("Data Source={0};Version=3;", DbFile);
                             SQLiteConnection sqliteConn = new SQLiteConnection(ConnectionString);
                             sqliteConn.Open();
-                            string strsql2 = "UPDATE regist SET 가격='" + price.ToString() + "' where rowid IN (SELECT rowid FROM regist LIMIT " + listView1.SelectedIndices[i] + ",1)";
-                            SQLiteCommand cmd = new SQLiteCommand(strsql2, sqliteConn);
-                            cmd.ExecuteNonQuery();
-                            sqliteConn.Close();
-                            listView1.SelectedItems[i].SubItems[7].Text = price.ToString();
+                            string strsql = "SELECT 일반분할흥정 FROM regist where rowid IN (SELECT rowid FROM regist LIMIT " + listView1.SelectedIndices[i] + ",1)";
+
+                            SQLiteCommand cmd = new SQLiteCommand(strsql, sqliteConn);
+                            SQLiteDataReader reader = cmd.ExecuteReader();
+                            if (reader.HasRows)
+                            {
+                                while (reader.Read())
+                                {
+                                    division = reader[0].ToString();
+                                }
+                            }
+                            reader.Close();
+                            if(division=="division")
+                            {
+                                int price = Int32.Parse(listView1.SelectedItems[i].SubItems[7].Text) + 100;
+                                DbFile = "data.dat";
+                                ConnectionString = string.Format("Data Source={0};Version=3;", DbFile);
+                                sqliteConn = new SQLiteConnection(ConnectionString);
+                                sqliteConn.Open();
+                                string strsql2 = "UPDATE regist SET 기준가격='" + price.ToString() + "' where rowid IN (SELECT rowid FROM regist LIMIT " + listView1.SelectedIndices[i] + ",1)";
+                                cmd = new SQLiteCommand(strsql2, sqliteConn);
+                                cmd.ExecuteNonQuery();
+                                sqliteConn.Close();
+                                listView1.SelectedItems[i].SubItems[7].Text = price.ToString();
+                            }
+                            else
+                            {
+                                int price = Int32.Parse(listView1.SelectedItems[i].SubItems[7].Text) + 100;
+                                DbFile = "data.dat";
+                                ConnectionString = string.Format("Data Source={0};Version=3;", DbFile);
+                                sqliteConn = new SQLiteConnection(ConnectionString);
+                                sqliteConn.Open();
+                                string strsql2 = "UPDATE regist SET 가격='" + price.ToString() + "' where rowid IN (SELECT rowid FROM regist LIMIT " + listView1.SelectedIndices[i] + ",1)";
+                                cmd = new SQLiteCommand(strsql2, sqliteConn);
+                                cmd.ExecuteNonQuery();
+                                sqliteConn.Close();
+                                listView1.SelectedItems[i].SubItems[7].Text = price.ToString();
+                            }
+
                         }
                         catch (Exception ex)
                         {
@@ -647,16 +683,49 @@ namespace register_2
                         try
                         {
 
-                            int price = Int32.Parse(listView1.SelectedItems[i].SubItems[7].Text) - 100;
+                            string division = "";
                             string DbFile = "data.dat";
                             string ConnectionString = string.Format("Data Source={0};Version=3;", DbFile);
                             SQLiteConnection sqliteConn = new SQLiteConnection(ConnectionString);
                             sqliteConn.Open();
-                            string strsql2 = "UPDATE regist SET 가격='" + price.ToString() + "' where rowid IN (SELECT rowid FROM regist LIMIT " + listView1.SelectedIndices[i] + ",1)";
-                            SQLiteCommand cmd = new SQLiteCommand(strsql2, sqliteConn);
-                            cmd.ExecuteNonQuery();
-                            sqliteConn.Close();
-                            listView1.SelectedItems[i].SubItems[7].Text = price.ToString();
+                            string strsql = "SELECT 일반분할흥정 FROM regist where rowid IN (SELECT rowid FROM regist LIMIT " + listView1.SelectedIndices[i] + ",1)";
+
+                            SQLiteCommand cmd = new SQLiteCommand(strsql, sqliteConn);
+                            SQLiteDataReader reader = cmd.ExecuteReader();
+                            if (reader.HasRows)
+                            {
+                                while (reader.Read())
+                                {
+                                    division = reader[0].ToString();
+                                }
+                            }
+                            reader.Close();
+                            if (division == "division")
+                            {
+                                int price = Int32.Parse(listView1.SelectedItems[i].SubItems[7].Text) - 100;
+                                DbFile = "data.dat";
+                                ConnectionString = string.Format("Data Source={0};Version=3;", DbFile);
+                                sqliteConn = new SQLiteConnection(ConnectionString);
+                                sqliteConn.Open();
+                                string strsql2 = "UPDATE regist SET 기준가격='" + price.ToString() + "' where rowid IN (SELECT rowid FROM regist LIMIT " + listView1.SelectedIndices[i] + ",1)";
+                                cmd = new SQLiteCommand(strsql2, sqliteConn);
+                                cmd.ExecuteNonQuery();
+                                sqliteConn.Close();
+                                listView1.SelectedItems[i].SubItems[7].Text = price.ToString();
+                            }
+                            else
+                            {
+                                int price = Int32.Parse(listView1.SelectedItems[i].SubItems[7].Text) - 100;
+                                DbFile = "data.dat";
+                                ConnectionString = string.Format("Data Source={0};Version=3;", DbFile);
+                                sqliteConn = new SQLiteConnection(ConnectionString);
+                                sqliteConn.Open();
+                                string strsql2 = "UPDATE regist SET 가격='" + price.ToString() + "' where rowid IN (SELECT rowid FROM regist LIMIT " + listView1.SelectedIndices[i] + ",1)";
+                                cmd = new SQLiteCommand(strsql2, sqliteConn);
+                                cmd.ExecuteNonQuery();
+                                sqliteConn.Close();
+                                listView1.SelectedItems[i].SubItems[7].Text = price.ToString();
+                            }
                         }
                         catch (Exception ex)
                         {
@@ -673,17 +742,49 @@ namespace register_2
                     {
                         try
                         {
-
-                            int price = Int32.Parse(listView1.SelectedItems[i].SubItems[7].Text) + 10;
+                            string division = "";
                             string DbFile = "data.dat";
                             string ConnectionString = string.Format("Data Source={0};Version=3;", DbFile);
                             SQLiteConnection sqliteConn = new SQLiteConnection(ConnectionString);
                             sqliteConn.Open();
-                            string strsql2 = "UPDATE regist SET 가격='" + price.ToString() + "' where rowid IN (SELECT rowid FROM regist LIMIT " + listView1.SelectedIndices[i] + ",1)";
-                            SQLiteCommand cmd = new SQLiteCommand(strsql2, sqliteConn);
-                            cmd.ExecuteNonQuery();
-                            sqliteConn.Close();
-                            listView1.SelectedItems[i].SubItems[7].Text = price.ToString();
+                            string strsql = "SELECT 일반분할흥정 FROM regist where rowid IN (SELECT rowid FROM regist LIMIT " + listView1.SelectedIndices[i] + ",1)";
+
+                            SQLiteCommand cmd = new SQLiteCommand(strsql, sqliteConn);
+                            SQLiteDataReader reader = cmd.ExecuteReader();
+                            if (reader.HasRows)
+                            {
+                                while (reader.Read())
+                                {
+                                    division = reader[0].ToString();
+                                }
+                            }
+                            reader.Close();
+                            if (division == "division")
+                            {
+                                int price = Int32.Parse(listView1.SelectedItems[i].SubItems[7].Text) + 10;
+                                DbFile = "data.dat";
+                                ConnectionString = string.Format("Data Source={0};Version=3;", DbFile);
+                                sqliteConn = new SQLiteConnection(ConnectionString);
+                                sqliteConn.Open();
+                                string strsql2 = "UPDATE regist SET 기준가격='" + price.ToString() + "' where rowid IN (SELECT rowid FROM regist LIMIT " + listView1.SelectedIndices[i] + ",1)";
+                                cmd = new SQLiteCommand(strsql2, sqliteConn);
+                                cmd.ExecuteNonQuery();
+                                sqliteConn.Close();
+                                listView1.SelectedItems[i].SubItems[7].Text = price.ToString();
+                            }
+                            else
+                            {
+                                int price = Int32.Parse(listView1.SelectedItems[i].SubItems[7].Text) + 10;
+                                DbFile = "data.dat";
+                                ConnectionString = string.Format("Data Source={0};Version=3;", DbFile);
+                                sqliteConn = new SQLiteConnection(ConnectionString);
+                                sqliteConn.Open();
+                                string strsql2 = "UPDATE regist SET 가격='" + price.ToString() + "' where rowid IN (SELECT rowid FROM regist LIMIT " + listView1.SelectedIndices[i] + ",1)";
+                                cmd = new SQLiteCommand(strsql2, sqliteConn);
+                                cmd.ExecuteNonQuery();
+                                sqliteConn.Close();
+                                listView1.SelectedItems[i].SubItems[7].Text = price.ToString();
+                            }
                         }
                         catch (Exception ex)
                         {
@@ -700,16 +801,49 @@ namespace register_2
                     {
                         try
                         {
-                            int price = Int32.Parse(listView1.SelectedItems[i].SubItems[7].Text) - 10;
+                            string division = "";
                             string DbFile = "data.dat";
                             string ConnectionString = string.Format("Data Source={0};Version=3;", DbFile);
                             SQLiteConnection sqliteConn = new SQLiteConnection(ConnectionString);
                             sqliteConn.Open();
-                            string strsql2 = "UPDATE regist SET 가격='" + price.ToString() + "' where rowid IN (SELECT rowid FROM regist LIMIT " + listView1.SelectedIndices[i] + ",1)";
-                            SQLiteCommand cmd = new SQLiteCommand(strsql2, sqliteConn);
-                            cmd.ExecuteNonQuery();
-                            sqliteConn.Close();
-                            listView1.SelectedItems[i].SubItems[7].Text = price.ToString();
+                            string strsql = "SELECT 일반분할흥정 FROM regist where rowid IN (SELECT rowid FROM regist LIMIT " + listView1.SelectedIndices[i] + ",1)";
+
+                            SQLiteCommand cmd = new SQLiteCommand(strsql, sqliteConn);
+                            SQLiteDataReader reader = cmd.ExecuteReader();
+                            if (reader.HasRows)
+                            {
+                                while (reader.Read())
+                                {
+                                    division = reader[0].ToString();
+                                }
+                            }
+                            reader.Close();
+                            if (division == "division")
+                            {
+                                int price = Int32.Parse(listView1.SelectedItems[i].SubItems[7].Text) - 10;
+                                DbFile = "data.dat";
+                                ConnectionString = string.Format("Data Source={0};Version=3;", DbFile);
+                                sqliteConn = new SQLiteConnection(ConnectionString);
+                                sqliteConn.Open();
+                                string strsql2 = "UPDATE regist SET 기준가격='" + price.ToString() + "' where rowid IN (SELECT rowid FROM regist LIMIT " + listView1.SelectedIndices[i] + ",1)";
+                                cmd = new SQLiteCommand(strsql2, sqliteConn);
+                                cmd.ExecuteNonQuery();
+                                sqliteConn.Close();
+                                listView1.SelectedItems[i].SubItems[7].Text = price.ToString();
+                            }
+                            else
+                            {
+                                int price = Int32.Parse(listView1.SelectedItems[i].SubItems[7].Text) - 10;
+                                DbFile = "data.dat";
+                                ConnectionString = string.Format("Data Source={0};Version=3;", DbFile);
+                                sqliteConn = new SQLiteConnection(ConnectionString);
+                                sqliteConn.Open();
+                                string strsql2 = "UPDATE regist SET 가격='" + price.ToString() + "' where rowid IN (SELECT rowid FROM regist LIMIT " + listView1.SelectedIndices[i] + ",1)";
+                                cmd = new SQLiteCommand(strsql2, sqliteConn);
+                                cmd.ExecuteNonQuery();
+                                sqliteConn.Close();
+                                listView1.SelectedItems[i].SubItems[7].Text = price.ToString();
+                            }
                         }
                         catch (Exception ex)
                         {
@@ -995,8 +1129,22 @@ namespace register_2
 
         static void Regist()
         {
-            deleteLoop = new Thread(DeleteLoop);
-            deleteLoop.Start();
+            StringBuilder getstr = new StringBuilder();
+            GetPrivateProfileString("OPTION", "SellDeleteCheck", null, getstr, 1000, path);
+            string sellDeleteCheck = getstr.ToString();
+            GetPrivateProfileString("OPTION", "BuyDeleteCheck", null, getstr, 1000, path);
+            string buyDeleteCheck = getstr.ToString();
+            GetPrivateProfileString("OPTION", "SellDeleteTime", null, getstr, 1000, path);
+            int sellDeleteTime = Int32.Parse(getstr.ToString());
+            GetPrivateProfileString("OPTION", "BuyDeleteTime", null, getstr, 1000, path);
+            int buyDeleteTime = Int32.Parse(getstr.ToString());
+
+            if(sellDeleteCheck!=null || buyDeleteCheck!=null)
+            {
+                deleteLoop = new Thread(DeleteLoop);
+                deleteLoop.Start();
+            }
+
             int j = 0;//REGIST.ini파일에 있는 아이디 가져오기
             int q = 0;//Form2의 아이디목록 카운트
 
@@ -1134,7 +1282,7 @@ namespace register_2
 
                     if (stopPoint2[0] == "1" && stopPoint2.Length == 1)
                     {
-                        Delay((60 - Int32.Parse(DateTime.Now.ToString("mm"))) * 60000);
+                        Thread.Sleep((60 - Int32.Parse(DateTime.Now.ToString("mm"))) * 60000);
                         for (int q1 = 0; q1 < stopPoint.Length; q1++)
                         {
                             stopPoint[q1] = "0";
@@ -2147,7 +2295,7 @@ namespace register_2
                 else
                     delay = 20000 - (c.Length * 1000);
 
-                Delay(delay);
+                Thread.Sleep(delay);
             }
         }
 
@@ -2260,7 +2408,7 @@ namespace register_2
             {
                 HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://www.itemmania.com/_xml/gamelist.xml");
                 req.Method = "GET";
-                req.CookieContainer = Form3.cookie;
+                req.CookieContainer = Form_AccountAdd.cookie;
                 HttpWebResponse response = (HttpWebResponse)req.GetResponse();
                 Encoding encode = Encoding.GetEncoding("utf-8");
                 Stream stReadData1 = response.GetResponseStream();
@@ -2292,7 +2440,7 @@ namespace register_2
             {
                 HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://www.itemmania.com/_xml/serverlist.php" + "?game=" + game_code);
                 req.Method = "GET";
-                req.CookieContainer = Form3.cookie;
+                req.CookieContainer = Form_AccountAdd.cookie;
                 HttpWebResponse response = (HttpWebResponse)req.GetResponse();
                 Encoding encode = Encoding.GetEncoding("utf-8");
                 Stream stReadData1 = response.GetResponseStream();
@@ -2503,6 +2651,7 @@ namespace register_2
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            deleteLoop.Abort();
             regist.Abort();
         }
 
@@ -2645,24 +2794,24 @@ namespace register_2
 
         private void Button7_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms["DeleteForm"] is DeleteForm DeleteForm)
+            if (Application.OpenForms["DeleteForm"] is Form_Delete DeleteForm)
             {
                 DeleteForm.Focus();
                 return;
             }
-            DeleteForm = new DeleteForm();
+            DeleteForm = new Form_Delete();
             DeleteForm.ShowDialog();
 
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms["OptionForm"] is OptionForm OptionForm)
+            if (Application.OpenForms["OptionForm"] is Form_Option OptionForm)
             {
                 OptionForm.Focus();
                 return;
             }
-            OptionForm = new OptionForm();
+            OptionForm = new Form_Option();
             OptionForm.ShowDialog();
         }
         static void DeleteLoop()
@@ -2679,7 +2828,7 @@ namespace register_2
                 GetPrivateProfileString("OPTION", "BuyDeleteTime", null, getstr, 1000, path);
                 int buyDeleteTime = Int32.Parse(getstr.ToString());
 
-                Delay(sellDeleteTime * 30000);
+                Thread.Sleep(sellDeleteTime * 30000);
                 
                 regist.Suspend();
 

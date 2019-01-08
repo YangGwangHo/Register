@@ -1,6 +1,6 @@
 ﻿namespace register_2
 {
-    partial class Form3
+    partial class Form_AccountAdd
     {
         /// <summary>
         /// Required designer variable.

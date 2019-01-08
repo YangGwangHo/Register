@@ -1,6 +1,6 @@
 ﻿namespace register_2
 {
-    partial class DeleteForm
+    partial class Form_Delete
     {
         /// <summary>
         /// Required designer variable.

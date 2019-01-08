@@ -13,25 +13,25 @@ using System.Windows.Forms;
 
 namespace register_2
 {
-    public partial class Form2 : Form 
+    public partial class Form_AccountList : Form 
     {
 
 
-        public Form2()
+        public Form_AccountList()
         {
             InitializeComponent();
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms["Form3"] is Form3 form3)
+            if (Application.OpenForms["Form3"] is Form_AccountAdd form3)
             {
                 form3.Focus();
                 return;
             }
-            form3 = new Form3();
+            form3 = new Form_AccountAdd();
 
-            form3.FormSendEvent += new Form3.FormSendDataHandler(IdUpdateEventMethod);
+            form3.FormSendEvent += new Form_AccountAdd.FormSendDataHandler(IdUpdateEventMethod);
             
             form3.ShowDialog();
 

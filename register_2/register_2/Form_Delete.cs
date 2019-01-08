@@ -15,9 +15,9 @@ using System.Windows.Forms;
 
 namespace register_2
 {
-    public partial class DeleteForm : Form
+    public partial class Form_Delete : Form
     {
-        public DeleteForm()
+        public Form_Delete()
         {
             InitializeComponent();
 
@@ -125,7 +125,7 @@ namespace register_2
         {
             while(true)
             {
-                if(Form1.regist.IsAlive == false)
+                if(Form_Main.regist.IsAlive == false)
                 {
                     break;
                 }
@@ -133,7 +133,7 @@ namespace register_2
             
             HttpWebRequest logoutReq = (HttpWebRequest)WebRequest.Create("http://www.itemmania.com/portal/user/logout_ok.html");
             logoutReq.Method = "GET";
-            logoutReq.CookieContainer = Form1.cookie;
+            logoutReq.CookieContainer = Form_Main.cookie;
             HttpWebResponse logoutResp = (HttpWebResponse)logoutReq.GetResponse();
             logoutReq.Abort();
             logoutResp.Close();
@@ -192,7 +192,7 @@ namespace register_2
                 HttpWebRequest req = (HttpWebRequest)WebRequest.Create("https://www.itemmania.com/portal/user/login_form_ok.php");
                 req.Method = "POST";
                 req.ContentType = "application/x-www-form-urlencoded; charset=UTF-8";
-                req.CookieContainer = Form1.cookie;
+                req.CookieContainer = Form_Main.cookie;
 
                 StreamWriter writer = new StreamWriter(req.GetRequestStream());
                 writer.Write(sendData);
@@ -209,7 +209,7 @@ namespace register_2
                 {
                     HttpWebRequest req2 = (HttpWebRequest)WebRequest.Create("http://trade.itemmania.com/myroom/sell/sell_regist.html?page=" + page.ToString() + "&strRelationType=regist");
                     req2.Method = "GET";
-                    req2.CookieContainer = Form1.cookie;
+                    req2.CookieContainer = Form_Main.cookie;
                     req2.CookieContainer.Add(resp.Cookies);
 
                     HttpWebResponse resp2 = (HttpWebResponse)req2.GetResponse();
@@ -252,7 +252,7 @@ namespace register_2
 
                 HttpWebRequest req3 = (HttpWebRequest)WebRequest.Create("http://trade.itemmania.com/myroom/sell/sell_regist.html?strRelationType=regist");
                 req3.Method = "GET";
-                req3.CookieContainer = Form1.cookie;
+                req3.CookieContainer = Form_Main.cookie;
                 req3.CookieContainer.Add(resp.Cookies);
                 resp.Close();
                 HttpWebResponse resp3 = (HttpWebResponse)req3.GetResponse();
@@ -274,7 +274,7 @@ namespace register_2
                         HttpWebRequest req4 = (HttpWebRequest)WebRequest.Create("http://trade.itemmania.com/myroom/sell/sell_regist.php");
                         req4.Referer = "http://trade.itemmania.com/myroom/sell/sell_regist.html?strRelationType=regist";
                         req4.Method = "POST";
-                        req4.CookieContainer = Form1.cookie;
+                        req4.CookieContainer = Form_Main.cookie;
                         req4.ContentType = "application/x-www-form-urlencoded; charset=UTF-8";
                         req4.CookieContainer.Add(resp3.Cookies);
 
@@ -301,7 +301,7 @@ namespace register_2
 
                 HttpWebRequest req5 = (HttpWebRequest)WebRequest.Create("http://www.itemmania.com/portal/user/logout_ok.html");
                 req5.Method = "GET";
-                req5.CookieContainer = Form1.cookie;
+                req5.CookieContainer = Form_Main.cookie;
                 HttpWebResponse resp5 = (HttpWebResponse)req5.GetResponse();
                 req5.Abort();
                 resp5.Close();
@@ -326,7 +326,7 @@ namespace register_2
                 HttpWebRequest req = (HttpWebRequest)WebRequest.Create("https://www.itemmania.com/portal/user/login_form_ok.php");
                 req.Method = "POST";
                 req.ContentType = "application/x-www-form-urlencoded; charset=UTF-8";
-                req.CookieContainer = Form1.cookie;
+                req.CookieContainer = Form_Main.cookie;
 
                 StreamWriter writer = new StreamWriter(req.GetRequestStream());
                 writer.Write(sendData);
@@ -343,7 +343,7 @@ namespace register_2
                 {
                     HttpWebRequest req2 = (HttpWebRequest)WebRequest.Create("http://trade.itemmania.com/myroom/buy/buy_regist.html?page=" + page.ToString() + "&strRelationType=regist");
                     req2.Method = "GET";
-                    req2.CookieContainer = Form1.cookie;
+                    req2.CookieContainer = Form_Main.cookie;
                     req2.CookieContainer.Add(resp.Cookies);
 
                     HttpWebResponse resp2 = (HttpWebResponse)req2.GetResponse();
@@ -392,7 +392,7 @@ namespace register_2
 
                 HttpWebRequest req3 = (HttpWebRequest)WebRequest.Create("http://trade.itemmania.com/myroom/buy/buy_regist.html?strRelationType=regist");
                 req3.Method = "GET";
-                req3.CookieContainer = Form1.cookie;
+                req3.CookieContainer = Form_Main.cookie;
                 req3.CookieContainer.Add(resp.Cookies);
                 resp.Close();
                 HttpWebResponse resp3 = (HttpWebResponse)req3.GetResponse();
@@ -414,7 +414,7 @@ namespace register_2
                         HttpWebRequest req4 = (HttpWebRequest)WebRequest.Create("http://trade.itemmania.com/myroom/buy/buy_regist.php");
                         req4.Referer = "http://trade.itemmania.com/myroom/buy/buy_regist.html?strRelationType=regist";
                         req4.Method = "POST";
-                        req4.CookieContainer = Form1.cookie;
+                        req4.CookieContainer = Form_Main.cookie;
                         req4.ContentType = "application/x-www-form-urlencoded; charset=UTF-8";
                         req4.CookieContainer.Add(resp3.Cookies);
 
@@ -446,7 +446,7 @@ namespace register_2
 
                 HttpWebRequest req5 = (HttpWebRequest)WebRequest.Create("http://www.itemmania.com/portal/user/logout_ok.html");
                 req5.Method = "GET";
-                req5.CookieContainer = Form1.cookie;
+                req5.CookieContainer = Form_Main.cookie;
                 HttpWebResponse resp5 = (HttpWebResponse)req5.GetResponse();
                 req5.Abort();
                 resp5.Close();

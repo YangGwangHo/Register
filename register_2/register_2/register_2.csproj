@@ -84,17 +84,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DeleteForm.cs">
+    <Compile Include="Form_Delete.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DeleteForm.Designer.cs">
-      <DependentUpon>DeleteForm.cs</DependentUpon>
+    <Compile Include="Form_Delete.Designer.cs">
+      <DependentUpon>Form_Delete.cs</DependentUpon>
     </Compile>
-    <Compile Include="OptionForm.cs">
+    <Compile Include="Form_Option.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OptionForm.Designer.cs">
-      <DependentUpon>OptionForm.cs</DependentUpon>
+    <Compile Include="Form_Option.Designer.cs">
+      <DependentUpon>Form_Option.cs</DependentUpon>
     </Compile>
     <Compile Include="UpdateAccount.cs">
       <SubType>Form</SubType>
@@ -102,29 +102,29 @@
     <Compile Include="UpdateAccount.Designer.cs">
       <DependentUpon>UpdateAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Form_Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Form_Main.Designer.cs">
+      <DependentUpon>Form_Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="Form_AccountList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="Form_AccountList.Designer.cs">
+      <DependentUpon>Form_AccountList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form3.cs">
+    <Compile Include="Form_AccountAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <Compile Include="Form_AccountAdd.Designer.cs">
+      <DependentUpon>Form_AccountAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form4.cs">
+    <Compile Include="Form_ProductAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form4.Designer.cs">
-      <DependentUpon>Form4.cs</DependentUpon>
+    <Compile Include="Form_ProductAdd.Designer.cs">
+      <DependentUpon>Form_ProductAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="UpdateNomalQuantity.cs">
       <SubType>Form</SubType>
@@ -163,26 +163,26 @@
     <Compile Include="UpdateTitle.Designer.cs">
       <DependentUpon>UpdateTitle.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="DeleteForm.resx">
-      <DependentUpon>DeleteForm.cs</DependentUpon>
+    <EmbeddedResource Include="Form_Delete.resx">
+      <DependentUpon>Form_Delete.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionForm.resx">
-      <DependentUpon>OptionForm.cs</DependentUpon>
+    <EmbeddedResource Include="Form_Option.resx">
+      <DependentUpon>Form_Option.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateAccount.resx">
       <DependentUpon>UpdateAccount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Form_Main.resx">
+      <DependentUpon>Form_Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="Form_AccountList.resx">
+      <DependentUpon>Form_AccountList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <EmbeddedResource Include="Form_AccountAdd.resx">
+      <DependentUpon>Form_AccountAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form4.resx">
-      <DependentUpon>Form4.cs</DependentUpon>
+    <EmbeddedResource Include="Form_ProductAdd.resx">
+      <DependentUpon>Form_ProductAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateNomalQuantity.resx">
       <DependentUpon>UpdateNomalQuantity.cs</DependentUpon>
