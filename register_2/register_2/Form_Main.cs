@@ -2013,8 +2013,7 @@ namespace register_2
                                     stReadData3.Close();
                                     req4.Abort();
                                     response2.Close();
-
-                                    RegistID[j] = strResult3.Substring(strResult3.IndexOf("check[]\" value=") + 16, strResult3.IndexOf("\" style=\"border") - (strResult3.IndexOf("check[]\" value=") + 16));
+                                    RegistID[j] = strResult3.Substring(strResult3.IndexOf("hideSelect") + 13, (strResult3.IndexOf("숨기기")-6) - (strResult3.IndexOf("hideSelect") + 13));
 
 
                                 }
@@ -2216,7 +2215,8 @@ namespace register_2
                                     req4.Abort();
                                     response2.Close();
 
-                                    RegistID[j] = strResult3.Substring(strResult3.IndexOf("check[]\" value=") + 16, 16);
+                                    RegistID[j] = strResult3.Substring(strResult3.IndexOf("hideSelect") + 13, (strResult3.IndexOf("숨기기") - 6) - (strResult3.IndexOf("hideSelect") + 13));
+
                                 }
                                 else if (strResult2.Contains("로그인 후 이용해주세요"))
                                 {
@@ -2840,14 +2840,16 @@ namespace register_2
                     }
                 }
 
-                HttpWebRequest logoutReq = (HttpWebRequest)WebRequest.Create("http://www.itemmania.com/portal/user/logout_ok.html");
-                logoutReq.Method = "GET";
-                logoutReq.CookieContainer = cookie;
-                HttpWebResponse logoutResp = (HttpWebResponse)logoutReq.GetResponse();
-                logoutReq.Abort();
-                logoutResp.Close();
+
                 try
                 {
+                    HttpWebRequest logoutReq = (HttpWebRequest)WebRequest.Create("http://www.itemmania.com/portal/user/logout_ok.html");
+                    logoutReq.Method = "GET";
+                    logoutReq.CookieContainer = cookie;
+                    HttpWebResponse logoutResp = (HttpWebResponse)logoutReq.GetResponse();//여기대기오류
+                    logoutReq.Abort();
+                    logoutResp.Close();
+
                     if (sellDeleteCheck == "1")
                     {
                         DataTable registTable2 = new DataTable();
@@ -2899,8 +2901,7 @@ namespace register_2
                             req.Method = "POST";
                             req.ContentType = "application/x-www-form-urlencoded; charset=UTF-8";
                             req.CookieContainer = cookie;
-
-                            Debug.WriteLine(deleteID[i]);
+                            
                             StreamWriter writer = new StreamWriter(req.GetRequestStream());
                             writer.Write(sendData);
                             writer.Close();
@@ -2930,23 +2931,26 @@ namespace register_2
                                 req2.Abort();
                                 resp2.Close();
 
-                                int index1 = strResult.IndexOf("check[]\" value=") + 16;
-                                int index2 = strResult.IndexOf("\" style=\"border");
-                                int index3 = strResult.IndexOf("onclick=\"reInsert") - 39;
+                                int index1 = strResult.IndexOf("check[]") + 16;
+                                int index2 = strResult.IndexOf("trade_title") - 46;
+                                int index3 = strResult.IndexOf("regist_btn09") - 119;
                                 int index4 = index3 + 11;
-                                
+
                                 listBox1.Invoke(new MethodInvoker(delegate ()
                                 {
                                     listBox1.Items.Add("[" + deleteID[i] + "] " + page + "페이지 읽음");
                                     listBox1.SelectedIndex = listBox1.Items.Count - 1;
                                 }));
                                 LogWrite("[" + deleteID[i] + "] " + page + "페이지 읽음");
+
                                 int j;
                                 for (j = 0; j < 10; j++)
                                 {
                                     try
                                     {
                                         registTime[i][count[i]] = strResult.Substring(index3, index4 - index3);
+
+                                        Debug.WriteLine(registTime[i][count[i]]);
                                     }
                                     catch
                                     {
@@ -2954,17 +2958,17 @@ namespace register_2
                                     }
                                     DateTime date = new DateTime(Int32.Parse(DateTime.Now.ToString("yyyy")), Int32.Parse(registTime[i][count[i]].Substring(0, 2)), Int32.Parse(registTime[i][count[i]].Substring(3, 2)), Int32.Parse(registTime[i][count[i]].Substring(6, 2)), Int32.Parse(registTime[i][count[i]].Substring(9, 2)), 00);
                                     TimeSpan time = DateTime.Now - date;
-                                    index3 = strResult.IndexOf("onclick=\"reInsert", index3 + 40) - 39;
+                                    index3 = strResult.IndexOf("regist_btn09", index3 + 120) - 119;
                                     index4 = index3 + 11;
                                     if (Math.Truncate(time.TotalMinutes) < sellDeleteTime)
                                     {
-                                        index1 = strResult.IndexOf("check[]\" value=", index1 + 1) + 16;
-                                        index2 = strResult.IndexOf("\" style=\"border", index2 + 1);
+                                        index1 = strResult.IndexOf("check[]", index1 + 1) + 16;
+                                        index2 = strResult.IndexOf("trade_title", index2 + 47) - 46;
                                         continue;
                                     }
                                     registID[i][count[i]] = strResult.Substring(index1, index2 - index1);
-                                    index1 = strResult.IndexOf("check[]\" value=", index1 + 1) + 16;
-                                    index2 = strResult.IndexOf("\" style=\"border", index2 + 1);
+                                    index1 = strResult.IndexOf("check[]", index1 + 1) + 16;
+                                    index2 = strResult.IndexOf("trade_title", index2 + 47) - 46;
                                     count[i]++;
                                 }
                                 req2.Abort();
@@ -3135,22 +3139,39 @@ namespace register_2
                                 req2.Abort();
                                 resp2.Close();
 
-                                int index1 = strResult.IndexOf("check[]\" value=") + 16;
+                                int index1 = strResult.IndexOf("check[]") + 16;
                                 int index2 = index1 + 16;
-                                if (index1 == 15)
-                                    break;
-                                int index3 = strResult.IndexOf("onclick=\"reInsert") - 41;
+                                int index3 = strResult.IndexOf("regist_btn09") - 119;
                                 int index4 = index3 + 11;
-
+                                Debug.WriteLine(index1);
+                                Debug.WriteLine(index2);
+                                Debug.WriteLine(index3);
+                                Debug.WriteLine(index4);
+                                Debug.WriteLine(strResult.Substring(index1, index2 - index1));
+                                Debug.WriteLine(strResult.Substring(index3, index4 - index3));
                                 listBox1.Invoke(new MethodInvoker(delegate ()
                                 {
                                     listBox1.Items.Add("[" + deleteID[i] + "] " + page + "페이지 읽음");
                                     listBox1.SelectedIndex = listBox1.Items.Count - 1;
                                 }));
                                 LogWrite("[" + deleteID[i] + "] " + page + "페이지 읽음");
+
+                                if (index1 == 15)
+                                {
+                                    req2.Abort();
+                                    resp2.Close();
+                                    break;
+                                }
+
                                 int j;
                                 for (j = 0; j < 10; j++)
                                 {
+                                    if (index1 == 15)
+                                    {
+                                        req2.Abort();
+                                        resp2.Close();
+                                        break;
+                                    }
                                     try
                                     {
                                         registTime[i][count[i]] = strResult.Substring(index3, index4 - index3);
@@ -3159,19 +3180,21 @@ namespace register_2
                                     {
                                         break;
                                     }
-                                    Debug.WriteLine(registTime[i][count[i]]);
                                     DateTime date = new DateTime(Int32.Parse(DateTime.Now.ToString("yyyy")), Int32.Parse(registTime[i][count[i]].Substring(0, 2)), Int32.Parse(registTime[i][count[i]].Substring(3, 2)), Int32.Parse(registTime[i][count[i]].Substring(6, 2)), Int32.Parse(registTime[i][count[i]].Substring(9, 2)), 00);
                                     TimeSpan time = DateTime.Now - date;
-                                    index3 = strResult.IndexOf("onclick=\"reInsert", index3 + 42) - 41;
+                                    index3 = strResult.IndexOf("regist_btn09", index3 + 120) - 119;
                                     index4 = index3 + 11;
                                     if (Math.Truncate(time.TotalMinutes) < sellDeleteTime)
                                     {
-                                        index1 = strResult.IndexOf("check[]\" value=", index1 + 1) + 16;
+                                        index1 = strResult.IndexOf("check[]", index1 + 1) + 16;
                                         index2 = index1 + 16;
                                         continue;
                                     }
+                                    Debug.WriteLine(index1);
+                                    Debug.WriteLine(index2);
+                                    Debug.WriteLine(strResult.Substring(index1, index2 - index1));
                                     registID[i][count[i]] = strResult.Substring(index1, index2 - index1);
-                                    index1 = strResult.IndexOf("check[]\" value=", index1 + 1) + 16;
+                                    index1 = strResult.IndexOf("check[]", index1 + 1) + 16;
                                     index2 = index1 + 16;
                                     count[i]++;
                                 }

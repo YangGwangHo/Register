@@ -181,13 +181,13 @@ namespace register_2
             }
             for (int i = 0; i < q; i++)
             {
+
+                if (removeCount[i] == false)
+                    continue;
                 listView1.Invoke(new MethodInvoker(delegate ()
                 {
                     listView1.Items[i].SubItems[2].Text = "판매 물품 삭제중";
                 }));
-                if (removeCount[i] == false)
-                    continue;
-
                 string sendData = "user_id=" + IDlist[i] + "&user_password=" + PWDlist[i];
                 HttpWebRequest req = (HttpWebRequest)WebRequest.Create("https://www.itemmania.com/portal/user/login_form_ok.php");
                 req.Method = "POST";
@@ -198,7 +198,7 @@ namespace register_2
                 writer.Write(sendData);
                 writer.Close();
 
-                HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+                HttpWebResponse resp = (HttpWebResponse)req.GetResponse();//오류예외처리해야함
                 req.Abort();
                 listBox1.Invoke(new MethodInvoker(delegate ()//크로스 스레드 예외 처리
                 {
@@ -220,8 +220,9 @@ namespace register_2
                     stReadData.Close();
                     req2.Abort();
                     resp2.Close();
-                    int index1 = strResult.IndexOf("check[]\" value=") + 16;
-                    int index2 = strResult.IndexOf("\" style=\"border");
+                    int index1 = strResult.IndexOf("check[]") + 16;
+                    int index2 = strResult.IndexOf("trade_title") - 46;
+
                     listBox1.Invoke(new MethodInvoker(delegate ()//크로스 스레드 예외 처리
                     {
                         listBox1.Items.Add("[" + IDlist[i] + "] " + page + "페이지 읽음");
@@ -230,10 +231,10 @@ namespace register_2
                     try
                     {
                         for (int j = 0; j < 10; j++)
-                        {
+                        {                            
                             registID[i][count[i]] = strResult.Substring(index1, index2 - index1);
-                            index1 = strResult.IndexOf("check[]\" value=", index1 + 1) + 16;
-                            index2 = strResult.IndexOf("\" style=\"border", index2 + 1);
+                            index1 = strResult.IndexOf("check[]", index1 + 1) + 16;
+                            index2 = strResult.IndexOf("trade_title", index2 + 47) - 46;
                             count[i]++;
                         }
                     }
@@ -270,7 +271,7 @@ namespace register_2
                     }
                     try
                     {
-                        string sendData2 = "process=deleteSelect&check[]=" + registID[i][j];
+                        string sendData2 = "trade_id=" + registID[i][j]+ "&process=deleteTrade";
                         HttpWebRequest req4 = (HttpWebRequest)WebRequest.Create("http://trade.itemmania.com/myroom/sell/sell_regist.php");
                         req4.Referer = "http://trade.itemmania.com/myroom/sell/sell_regist.html?strRelationType=regist";
                         req4.Method = "POST";
@@ -315,13 +316,13 @@ namespace register_2
 
             for (int i = 0; i < q; i++)
             {
+
+                if (removeCount[i] == false)
+                    continue;
                 listView1.Invoke(new MethodInvoker(delegate ()
                 {
                     listView1.Items[i].SubItems[2].Text = "구매 물품 삭제중";
                 }));
-                if (removeCount[i] == false)
-                    continue;
-
                 string sendData = "user_id=" + IDlist[i] + "&user_password=" + PWDlist[i];
                 HttpWebRequest req = (HttpWebRequest)WebRequest.Create("https://www.itemmania.com/portal/user/login_form_ok.php");
                 req.Method = "POST";
@@ -354,24 +355,35 @@ namespace register_2
                     stReadData.Close();
                     req2.Abort();
                     resp2.Close();
-                    int index1 = strResult.IndexOf("check[]\" value=") + 16;
+                    int index1 = strResult.IndexOf("check[]") + 16;
                     int index2 = index1 + 16;
-                    if (index1 == 15)
-                        break;
+
                     listBox1.Invoke(new MethodInvoker(delegate ()//크로스 스레드 예외 처리
                     {
                         listBox1.Items.Add("[" + IDlist[i] + "] " + page + "페이지 읽음");
                         listBox1.SelectedIndex = listBox1.Items.Count - 1;
                     }));
+
+                    if (index1 == 15)
+                    {
+                        req2.Abort();
+                        resp2.Close();
+                        break;
+                    }
+
                     try
                     {
                         for (int j = 0; j < 10; j++)
                         {
                             if (index1 == 15)
+                            {
+                                req2.Abort();
+                                resp2.Close();
                                 break;
+                            }
                             registID[i][count[i]] = strResult.Substring(index1, index2 - index1);
-                            Debug.WriteLine(registID[i][count[i]]);
-                            index1 = strResult.IndexOf("check[]\" value=", index1 + 1) + 16;
+                            
+                            index1 = strResult.IndexOf("check[]", index1 + 1) + 16;
                             index2 = index1 + 16;
                             count[i]++;
                         }
