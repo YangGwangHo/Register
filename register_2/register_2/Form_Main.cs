@@ -2013,7 +2013,7 @@ namespace register_2
                                     stReadData3.Close();
                                     req4.Abort();
                                     response2.Close();
-                                    RegistID[j] = strResult3.Substring(strResult3.IndexOf("hideSelect") + 13, (strResult3.IndexOf("숨기기")-6) - (strResult3.IndexOf("hideSelect") + 13));
+                                    RegistID[j] = strResult3.Substring(strResult3.IndexOf("check[]") + 16, strResult3.IndexOf("check[]") + 32);
 
 
                                 }
