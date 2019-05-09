@@ -2214,8 +2214,7 @@ namespace register_2
                                     stReadData3.Close();
                                     req4.Abort();
                                     response2.Close();
-
-                                    RegistID[j] = strResult3.Substring(strResult3.IndexOf("check[]") + 16, strResult3.IndexOf("check[]") + 32);
+                                    RegistID[j] = strResult3.Substring(strResult3.IndexOf("check[]") + 16, 16);
 
                                 }
                                 else if (strResult2.Contains("로그인 후 이용해주세요"))
